@@ -97,7 +97,6 @@ search_pokemons.addEventListener('keyup', () => {
         console.log(pokeResults);
     })
 })
-
 fetchDataPokemon();
 
 
