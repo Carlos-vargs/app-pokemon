@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+    background-color: #F1F1F1;
+    font-family: 'Nunito', sans-serif;
+}
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
+}
+.pokemon-logo {
+    width: 160px;
+    height: 90px;
+    margin-left: 36px;
+}
+.profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-right: 36px;
+    background-image: linear-gradient(315deg, #f9484a 0%, #fbd72b 74%);
+}
+.header-input{
+    width: 30%;
+    margin: auto;
+}
+.header-input input{
+    width: 81%; 
+    height: 40px;
+    border: none;
+    outline: none;
+}
+.main-input-container{
+    width: 100%;
+    border-radius: 100px;
+    border: 1px solid #dfe1e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+}
+
+.search-icon{
+    background-image: url("../icons/search.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
+
+main{
+    width: 100%;
+    height: auto;
+}
+
+.Poke-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container-cards--info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    width: 260px;
+    height: 330px;
+    border-radius: 20px;
+    margin: 30px 30px 30px 30px;
+    background: linear-gradient(to right, rgb(255, 128, 8), rgb(255, 200, 55));  
+}
+
+.container-cards--modal {
+    display: none;
+    background-color:white;
+    width: 300px;
+    height: 360px;
+    
+}
+
+.container-cards--info:hover{
+    box-shadow: 0 1px 12px 0 #242323c0;
+
+}
+
+.img-target{
+    margin: 32px 0px 0px 15px ;
+    width: 150px;
+    height: 140px;
+}
+
+
+.conten{
+    font-size: 1.7rem;
+    margin-top: 40px;
+    color: #191970;
+}
+
+/*MODAL*/
+
+.close {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.container-Close{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.726);
+    width: 25px;
+    border-radius: 100%;
+    height: 25px;
+    right: 13px;
+    top: 9px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*target of modal*/
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 400px;
+    height: 450px; 
+    border-radius: 20px;
+}
+
+.pokeModalup {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.6);
+}
+
+.pokeModald{
+    display: block;
+}
+ .img-target_MODAL{
+    width: 50%; /*50%*/
+    height: auto;
+    margin: 0 auto;
+} 
+ 
+
+.pokeModalText{
+    font-size: 1.7rem;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-weight: bold;
+}
+.modal--card-text{
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 4px;
+    font-weight: 500;
+}
+
+
