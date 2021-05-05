@@ -87,10 +87,10 @@ main{
     text-align: left;
     max-width: 260px;
     min-width: 100px;
-    width: 90%;
-    height: 330px; 
+    width: 15%;
+    height: auto; 
     border-radius: 20px;
-    margin: 15px 15px 15px 15px;
+    margin: 1%;
     background: linear-gradient(to right, rgb(255, 128, 8), rgb(255, 200, 55));  
 }
 
@@ -107,21 +107,22 @@ main{
 
 }
 
-.img-target{
-    margin: 32px 0px 0px 15px ;
-    width: 150px;
-    height: 140px;
+.img-target {
+    margin: 20% auto;
+    max-width: 150px;
+    min-width: 90px;
+    width: 75%;
+    height: auto;
 }
-
 
 .conten{
     font-size: 1.7rem;
-    margin-top: 40px;
+    margin-top: 20px;
+    font-weight: 500;
     color: #191970;
 }
 
 /*MODAL*/
-
 .close {
     color: white;
     font-size: 2rem;
@@ -155,11 +156,12 @@ main{
     flex-direction: column;
     position: relative;
     background-color: white;
-    margin: auto;
+    max-width: 400px;
+    min-width: 100px;
+    width: 70%;
+    height: auto; 
     padding: 20px;
-    /* border: 1px solid #888; */
-    width: 400px;
-    height: 450px; 
+    margin: auto;
     border-radius: 20px;
 }
 
@@ -177,15 +179,11 @@ main{
     background-color: rgba(0,0,0,0.6);
 }
 
-.pokeModald{
-    display: block;
-}
- .img-target_MODAL{
+.img-target_MODAL{
     width: 50%; 
     height: auto;
-    margin: 0 auto;
+    margin: 5% auto;
 } 
- 
 
 .pokeModalText{
     font-size: 1.7rem;
@@ -225,4 +223,11 @@ main{
     .header-input input {
         height: 35px;
     } 
+    .container-cards--info{
+        width: 38%;
+    }
+
+    .img-target {
+        margin: 20px auto 50px;
+    }   
 }

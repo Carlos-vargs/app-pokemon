@@ -4,7 +4,7 @@ const cards_generator = obj => {
     
      POKECARD.innerHTML = `
      <h3 class="conten">${firstLetter(obj.name)}</h3>
-     <figure><img src="https://pokeres.bastionbot.org/images/pokemon/${obj.id}.png" alt="pokemon ${firstLetter(obj.name)}" class="img-target"></figure>
+     <img src="https://pokeres.bastionbot.org/images/pokemon/${obj.id}.png" alt="pokemon ${firstLetter(obj.name)}" class="img-target">
      `
     return POKECARD
 }

@@ -62,11 +62,11 @@ function renderPokemon(pokeData) {
         poke_weight.innerHTML = `Weight: ${pokeData.weight} kg`
         
         if (countHability.length && countTypes.length === 2) {
-            poke_types.innerHTML = `Type: ${countTypes[0].type.name} / ${countTypes[1].type.name}`
-            poke_hab.innerHTML = `Ability: ${countHability[0].ability.name} / ${countHability[1].ability.name}`
+            poke_types.innerHTML = `Type: ${firstLetter(countTypes[0].type.name)} / ${firstLetter(countTypes[1].type.name)}`
+            poke_hab.innerHTML = `Ability: ${firstLetter(countHability[0].ability.name)} / ${firstLetter(countHability[1].ability.name)}`
         } else {
-            poke_types.innerHTML = `Type: ${countTypes[0].type.name}`
-            poke_hab.innerHTML = `Ability: ${countHability[0].ability.name}` 
+            poke_types.innerHTML = `Type: ${firstLetter(countTypes[0].type.name)}`
+            poke_hab.innerHTML = `Ability: ${firstLetter(countHability[0].ability.name)}` 
         }
         fetch(pokeBio)
         .then(res => isResOk(res))
