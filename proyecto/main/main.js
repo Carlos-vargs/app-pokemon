@@ -54,6 +54,15 @@ function renderPokemon(pokeData) {
     const infCards = cards_generator(pokeData) 
     allPokemonContainer.appendChild(infCards);
     
+    search_pokemons.addEventListener('keyup', () => {
+        let text = search_pokemons.value.toLowerCase()
+        let pokenames = pokeData.name
+        if (pokenames.indexOf(text) !== -1) {
+            console.log(pokenames);
+        }
+    })
+        
+    
     infCards.addEventListener("click", () => {
         pokeContainerModal.style.display = 'block';
         htmlScroll.style.overflow= 'hidden';
@@ -92,7 +101,7 @@ window.addEventListener('click', (e) => {
     }
 });
 
-
+/*
 search_pokemons.addEventListener('keyup', () => {
     fetch(URL)
     .then(res => isResOk(res))
@@ -103,7 +112,7 @@ search_pokemons.addEventListener('keyup', () => {
     })
     
 })
-    
+    */
 fetchDataPokemon();
 
 /*
