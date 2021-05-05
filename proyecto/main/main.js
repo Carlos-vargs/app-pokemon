@@ -23,6 +23,7 @@ const poke_color = document.getElementById('poke-color')
 const poke_types = document.getElementById('pokeTypes')
 const poke_description = document.getElementById('pokeDescription')
 const poke_bio = document.getElementById('pokeBio')
+const htmlScroll = document.getElementsByTagName('html')[0]
 
 function fetchDataPokemon() {
     fetch(URL)
@@ -55,6 +56,7 @@ function renderPokemon(pokeData) {
     
     infCards.addEventListener("click", () => {
         pokeContainerModal.style.display = 'block';
+        htmlScroll.style.overflow= 'hidden';
         poke_Img.src = pokeImg
         poke_Img.alt = `Pokemon ${pokeData.name}` 
         modal_names.innerHTML = firstLetter(pokeData.name)
@@ -73,20 +75,23 @@ function renderPokemon(pokeData) {
         .then(dataBio => {
             let caseBio = dataBio.flavor_text_entries[0].flavor_text
             poke_bio.innerHTML = `Description: ${firstLetter(caseBio.toLowerCase())}`
-            //color_target.style.backgroundColor = dataBio.color.name
+            color_target.style.backgroundColor = dataBio.color.name
         })
     })
 }
 
 pokeClose.addEventListener("click", () => {
-    pokeContainerModal.style.display = 'none'; 
+    pokeContainerModal.style.display = 'none';
+    htmlScroll.style.overflow= 'auto';
 })
 
 window.addEventListener('click', (e) => {
     if(e.target == pokeContainerModal){
         pokeContainerModal.style.display = 'none';
+        htmlScroll.style.overflow= 'auto';
     }
 });
+
 
 search_pokemons.addEventListener('keyup', () => {
     fetch(URL)
@@ -96,7 +101,32 @@ search_pokemons.addEventListener('keyup', () => {
         let pokeResults = dataFil.results.filter(pokeFil => pokeFil.name.indexOf(text) !== -1)
         console.log(pokeResults);
     })
+    
 })
+    
 fetchDataPokemon();
 
+/*
 
+const searchDataPokemon = async (url_pokeApi) => {
+    try {
+        const dataResults = await fetch(url_pokeApi)
+        .then((res) => res.json());
+        const pokecharacter = await fetch(`${url_pokeApi}${dataResults.results}`)        
+        pokecharacter.map(poke_characters => {
+          const THISCARD = cards_generator(poke_characters);
+          allPokemonContainer.appendChild(THISCARD)
+        });
+        
+    } catch (error) {
+      console.error(error);
+    }   
+}
+
+searchDataPokemon(URL);
+
+
+   
+
+})*/
+// let pokeResults = dataFil.results.filter(pokeFil => pokeFil.name.indexOf(text) !== -1)
