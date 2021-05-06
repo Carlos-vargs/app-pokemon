@@ -162,6 +162,7 @@ main{
     padding: 20px;
     margin: auto;
     border-radius: 20px;
+    background-color: white;
 }
 
 
@@ -200,6 +201,17 @@ main{
     font-weight: 500;
     padding: 4px;
     font-weight: 500;
+}
+
+.pokemon--not-found{
+    display: none;
+    position: absolute;
+    top: 40%;
+    margin: 0 auto;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
 }
 
 @media (max-width: 480px) {

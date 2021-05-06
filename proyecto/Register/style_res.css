@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-portada{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.container-pokeForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 350px;
+    min-width: 300px;
+    width: 50%;
+    height: 500px;
+    border-radius: 20px;
+    margin-top: 4%;
+    background: white; 
+    position: relative;
+    box-shadow: 0 1px 6px 0 #20212447;
+    border-color: #dfe1e500;
+}
+
+.form--top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    top: 0;
+    background-color: #D9072D;
+    width: 100%;
+    height: 60px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.main-form--text{
+    font-size: 1.6rem;
+    margin: 4% 0;
+}
+
+.main-form--text:nth-child(7){
+    font-weight: bold;
+}
+
+.main-form--design-inputs{
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.button-form{
+    width: 300px;
+    height: 40px;
+    color: rgb(100, 99, 99);
+    border: 2px solid;
+    border-color: #D9072D;
+    border-radius: 10px;
+    margin-top: 10%;
+    transition: all 1s ease;
+    padding: 0.5em 1.2em;
+    background: rgba(0,0,0,0);    
+}
+.button-form:hover {
+    background:#D9072D;
+    color: #fff;
+  }
+
+.button-form,
+.main-form--design-inputs:focus{
+    outline: none;
+}
+
+.main-form--design-inputs::-webkit-input-placeholder{
+    padding-left: 10px;
+}

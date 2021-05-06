@@ -1,3 +1,4 @@
+//orders to pokeApi
 const URL = 'https://pokeapi.co/api/v2/pokemon?limit=151';
 const isResOk = (res) => {
     if (!res.ok)
@@ -8,6 +9,7 @@ const isResOk = (res) => {
 //search pokemons with input 
 const search_pokemons = document.getElementById('search-pokemons')
 const allPokemonContainer = document.getElementById('cards-content');
+const pokemonNotFound = document.getElementById('notFound')
 //modal
 const pokeContainerModal = document.getElementById('pokeBlock')
 const pokeClose = document.getElementById('closeSpan') 
@@ -51,17 +53,19 @@ function renderPokemon(pokeData) {
     let pokeBio = `https://pokeapi.co/api/v2/pokemon-species/${pokeData.id}/`
     let pokeImg = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`
     
-    const infCards = cards_generator(pokeData) 
+    let infCards = cards_generator(pokeData) 
     allPokemonContainer.appendChild(infCards);
-    
+
     search_pokemons.addEventListener('keyup', () => {
         let text = search_pokemons.value.toLowerCase()
         let pokenames = pokeData.name
         if (pokenames.indexOf(text) !== -1) {
-            console.log(pokenames);
+            infCards.style.display = "flex";
+        } else {
+            infCards.style.display = "none";
         }
     })
-        
+    
     
     infCards.addEventListener("click", () => {
         pokeContainerModal.style.display = 'block';
@@ -84,7 +88,7 @@ function renderPokemon(pokeData) {
         .then(dataBio => {
             let caseBio = dataBio.flavor_text_entries[0].flavor_text
             poke_bio.innerHTML = `Description: ${firstLetter(caseBio.toLowerCase())}`
-            color_target.style.backgroundColor = dataBio.color.name
+            //color_target.style.backgroundColor = dataBio.color.name
         })
     })
 }
@@ -100,42 +104,4 @@ window.addEventListener('click', (e) => {
         htmlScroll.style.overflow= 'auto';
     }
 });
-
-/*
-search_pokemons.addEventListener('keyup', () => {
-    fetch(URL)
-    .then(res => isResOk(res))
-    .then(dataFil => {
-        let text = search_pokemons.value.toLowerCase()
-        let pokeResults = dataFil.results.filter(pokeFil => pokeFil.name.indexOf(text) !== -1)
-        console.log(pokeResults);
-    })
-    
-})
-    */
 fetchDataPokemon();
-
-/*
-
-const searchDataPokemon = async (url_pokeApi) => {
-    try {
-        const dataResults = await fetch(url_pokeApi)
-        .then((res) => res.json());
-        const pokecharacter = await fetch(`${url_pokeApi}${dataResults.results}`)        
-        pokecharacter.map(poke_characters => {
-          const THISCARD = cards_generator(poke_characters);
-          allPokemonContainer.appendChild(THISCARD)
-        });
-        
-    } catch (error) {
-      console.error(error);
-    }   
-}
-
-searchDataPokemon(URL);
-
-
-   
-
-})*/
-// let pokeResults = dataFil.results.filter(pokeFil => pokeFil.name.indexOf(text) !== -1)
