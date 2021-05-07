@@ -10,32 +10,50 @@ html{
 
 main{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+
+}
+
+body{
+    overflow-y: hidden;
 }
 
 .poke-portada{
-    top: 0;
-    left: 0;
     width: 100%;
+    height: 100vh;
+}
+
+.container--poke-logo-portada{
+    width: 100%;
+    height: auto;
+}
+
+.pokemon--logo{
+    display: flex;
+    width: 400px;
+    height: auto;
     position: absolute;
+    top: 8%;
+    left: 3%;
 }
 
 .container-pokeForm{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     max-width: 350px;
     min-width: 300px;
-    width: 50%;
+    width: 100%;
     height: 500px;
     border-radius: 20px;
-    margin-top: 4%;
-    background: white; 
-    position: relative;
-    box-shadow: 0 1px 6px 0 #20212447;
-    border-color: #dfe1e500;
+    /* margin-top: 4%; */
+    background-color: white; 
+    position: absolute;
+    right: 20%;
+    /* box-shadow: 0 1px 6px 0 #20212447;
+    border-color: #dfe1e500; */
 }
 
 .form--top{
@@ -69,33 +87,34 @@ main{
 }
 
 .main-form--design-inputs{
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
-    border: 1px solid gray;
+    border: none;
+    background-color: #F3F3F3;
 }
 
+.main-form--design-inputs:hover,
+.main-form--design-inputs:focus{
+    outline: none;
+    background-color: white;
+    border: 1px solid #8ab9fc;
+    box-shadow: 0 2px 6px rgb(165, 194, 236);
+    transition: all 0.2s ease;
+}
 .button-form{
     width: 300px;
     height: 40px;
     color: rgb(100, 99, 99);
-    border: 2px solid;
-    border-color: #D9072D;
+    border: none;
     border-radius: 10px;
     margin-top: 10%;
-    transition: all 1s ease;
     padding: 0.5em 1.2em;
     background: rgba(0,0,0,0);    
 }
-.button-form:hover {
+.button-form:hover,
+.button-form:focus {
+    transition: all 1s ease;
     background:#D9072D;
     color: #fff;
-  }
-
-.button-form,
-.main-form--design-inputs:focus{
     outline: none;
-}
-
-.main-form--design-inputs::-webkit-input-placeholder{
-    padding-left: 10px;
 }
