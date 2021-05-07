@@ -6,65 +6,57 @@
 
 html{
     font-size: 62.5%;
+    background: rgb(242,183,5);
+    background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
 }
 
 main{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-
-}
-
-body{
-    overflow-y: hidden;
 }
 
 .poke-portada{
-    width: 100%;
-    height: 100vh;
+    max-width: 400px;
+    min-width: 200px;
+    width: 80%;
+    height: auto;
 }
 
 .container--poke-logo-portada{
-    width: 100%;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .pokemon--logo{
-    display: flex;
-    width: 400px;
+    max-width: 400px;
+    min-width: 200px;
+    width: 70%;
     height: auto;
-    position: absolute;
-    top: 8%;
-    left: 3%;
 }
 
 .container-pokeForm{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     max-width: 350px;
     min-width: 300px;
     width: 100%;
     height: 500px;
     border-radius: 20px;
-    /* margin-top: 4%; */
     background-color: white; 
-    position: absolute;
-    right: 20%;
-    /* box-shadow: 0 1px 6px 0 #20212447;
-    border-color: #dfe1e500; */
+    margin-top: 10%;   
 }
 
 .form--top{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     color: white;
     font-size: 1.6rem;
     font-weight: bold;
-    top: 0;
+    padding: 10px;
     background-color: #D9072D;
     width: 100%;
     height: 60px;
@@ -76,8 +68,15 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 10%;
 }
 .main-form--text{
+    font-size: 1.6rem;
+    margin: 4% 0;
+}
+
+.text-warning{
+    color: red;
     font-size: 1.6rem;
     margin: 4% 0;
 }
@@ -118,3 +117,11 @@ body{
     color: #fff;
     outline: none;
 }
+
+.warnings{
+    text-align: center;
+    padding-top: 2%;
+    margin: auto;
+}
+
+/* @media (max-width: 480px) */
