@@ -13,16 +13,16 @@ value_form.addEventListener('submit', e => {
     parrafo.innerHTML = ""
     
     if (value_name.value.length < 6) {
-        warnings += `El nombre no es valido <br>`
+        warnings += `The name is invalid <br>`
         enter = true
     }
     if (!regexEmail.test(value_email.value)) {
-        warnings += `El email no es valido <br>`
+        warnings += `The email is not valid <br>`
         enter = true
     }
     
     if (value_password.value.length < 8) {
-        warnings += `La contraseña no es valida <br>`
+        warnings += `The password is not valid <br>`
         enter = true
     }
     if (enter) {
