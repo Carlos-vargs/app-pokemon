@@ -88,8 +88,9 @@ function renderPokemon(pokeData) {
         .then(dataBio => {
             let caseBio = dataBio.flavor_text_entries[0].flavor_text
             poke_bio.innerHTML = `Description: ${firstLetter(caseBio.toLowerCase())}`
+            /*
             color_target.style.backgroundColor = dataBio.color.name
-            /*if (dataBio.color.name === "yellow") {
+            if (dataBio.color.name === "yellow") {
             color_target.style.backgroundColor = "#FFC000"
             }
             tambien es posible hacer un switch que evalue los colores y dependiendo el color que le regresen lo cmabie por el color que estoy eligiendo 
