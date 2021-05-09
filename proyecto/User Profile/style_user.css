@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+    background-color: #F1F1F1;
+    font-family: 'Nunito', sans-serif;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container-image-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-profile{
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+.container--user_profile{
+    width: 150px;
+    height: 130px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid gray;
+}
+
+.user_profile{
+    width: 100%; 
+    background-image: linear-gradient(315deg, #f9484a 0%, #fbd72b 74%);
+}
+
+#get_reference{
+    display: none;
+}
+
+.button_profile{
+    background-image: url("../icons/5003017741537356029.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: -13px;
+    margin-left: 147px;
+}
+
+/* contenedor de la informacion del usuario nickname, gmail, edad*/
+
+.container-information--acount{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    min-width: 226px;
+    width: 90%;
+    margin-top: 10%;
+}
+
+.textprofile {
+    color: #012340;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    margin: 0 0 2% 5%;
+}
+
+.text-of-profile{
+    color: #023059;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 2% 0;
+}
+
+.information-acount{
+    max-width: 400px;
+    min-width: 190px;
+    width: 90%;
+    border: 1px solid gray;
+    border-radius: 7px;
+    background-color: #D0D9F2;
+    margin: 0 auto;
+    margin-bottom: 5%;
+}
