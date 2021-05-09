@@ -1,4 +1,4 @@
-// obtenr los valores del formulario
+// get the form values
 const value_form = document.getElementById('form')
 const value_name = document.getElementById('name')
 const value_email = document.getElementById('email')
