@@ -165,7 +165,6 @@ main{
     background-color: white;
 }
 
-
 .pokeModalup {
     display: none; 
     position: fixed; 
@@ -179,9 +178,7 @@ main{
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.6);
 }
-.pokeModalup::before{
-    background-color: white;
-}
+
 
 .img-target_MODAL{
     width: 50%; 
@@ -200,7 +197,6 @@ main{
     font-size: 1.4rem;
     font-weight: 500;
     padding: 4px;
-    font-weight: 500;
 }
 
 .pokemon--not-found{
@@ -213,6 +209,7 @@ main{
     font-weight: bold;
     color: gray;
 }
+
 
 @media (max-width: 480px) {
     header{
