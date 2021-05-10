@@ -7,8 +7,8 @@
 html{
     font-size: 62.5%;
     background: rgb(242,183,5);
-    background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
     font-family: 'Lato', sans-serif;
+    background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
 }
 
 main{
