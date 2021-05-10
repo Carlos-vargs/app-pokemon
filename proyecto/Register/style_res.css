@@ -8,7 +8,7 @@ html{
     font-size: 62.5%;
     background: rgb(242,183,5);
     background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 main{
@@ -46,7 +46,6 @@ main{
 .form-title{
     font-size: 2rem;
     font-weight: bold;
-    letter-spacing: -1px;
 }
 
 .container-pokeForm{
@@ -103,7 +102,7 @@ main{
 }
 
 .main-form--design-inputs{
-    height: 40px;
+    height: 45px;
     border-radius: 10px;
     border: none;
     background-color: #F3F3F3;
