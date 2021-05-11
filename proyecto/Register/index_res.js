@@ -3,14 +3,16 @@ const value_form = document.getElementById('form')
 const value_name = document.getElementById('name')
 const value_email = document.getElementById('email')
 const value_password = document.getElementById('password')
-const parrafo = document.getElementById('warnings')
+const paragraph = document.getElementById('warnings')
+let redirectPage = "http:/proyecto/main/index.html"
 
 value_form.addEventListener('submit', e => {
     e.preventDefault()
+
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
     let warnings = ""
     let enter = false
-    parrafo.innerHTML = ""
+    paragraph.innerHTML = ""
     
     if (value_name.value.length < 6) {
         warnings += `The name is invalid <br>`
@@ -24,8 +26,15 @@ value_form.addEventListener('submit', e => {
     if (value_password.value.length < 8) {
         warnings += `The password is not valid <br>`
         enter = true
-    }
-    if (enter) {
-        parrafo.innerHTML = warnings
+        if (enter) {
+            paragraph.innerHTML = warnings
+        }
     }
 })
+
+
+if (paragraph.innerHTML === "") {
+    location.href = redirectPage
+}
+
+console.log(value_form.value);
