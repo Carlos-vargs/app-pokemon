@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+    background-color: #F1F1F1;
+    font-family: 'Nunito', sans-serif;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
+    position: relative;
+}
+.pokemon-logo {
+    max-width: 165px;
+    min-width: 100px;
+    width: 15%;
+    height: auto;
+    margin-left: 36px;
+}
+.profile-img{
+    min-width: 40px;
+    max-width: 50px;
+    width: 10%;
+    height: auto;
+    border-radius: 100%;
+    margin-right: 36px;
+    background-image: linear-gradient(315deg, #f9484a 0%, #fbd72b 74%);
+}
+.header-input{
+    min-width: 100px;
+    max-width: 350px;
+    width: 70%;
+    margin: auto 10px;
+}
+.header-input input{
+    max-width: 340px;
+    min-width: 65px;
+    width: 85%; 
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 150px;
+
+}
+.main-input-container{
+    width: 100%;
+    border-radius: 100px;
+    border: 1px solid #dfe1e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    
+}
+
+.search-icon{
+    background-image: url("../icons/search.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
+
+main{
+    width: 100%;
+    height: auto;
+}
+
+.Poke-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container-cards--info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    max-width: 260px;
+    min-width: 100px;
+    width: 15%;
+    height: auto; 
+    border-radius: 20px;
+    margin: 1%;
+    background: linear-gradient(to right, rgb(255, 128, 8), rgb(255, 200, 55));  
+}
+
+.container-cards--modal {
+    display: none;
+    background-color:white;
+    width: 300px;
+    height: 360px;
+    
+}
+
+.container-cards--info:hover{
+    box-shadow: 0 1px 12px 0 #242323c0;
+
+}
+
+.img-target {
+    margin: 20% auto;
+    max-width: 150px;
+    min-width: 90px;
+    width: 75%;
+    height: auto;
+}
+
+.conten{
+    font-size: 1.7rem;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #191970;
+}
+
+/*MODAL*/
+.close {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.container-Close{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #BB0B00;
+    width: 25px;
+    border-radius: 100%;
+    height: 25px;
+    right: 13px;
+    top: 9px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*target of modal*/
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 400px;
+    min-width: 100px;
+    width: 70%;
+    height: auto; 
+    padding: 20px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.pokeModalup {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.6);
+}
+
+
+.img-target_MODAL{
+    width: 50%; 
+    height: auto;
+    margin: 5% auto;
+} 
+
+.pokeModalText{
+    font-size: 1.7rem;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-weight: bold;
+}
+.modal--card-text{
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 4px;
+}
+
+.pokemon--not-found{
+    display: none;
+    position: absolute;
+    top: 40%;
+    margin: 0 auto;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+}
+
+
+@media (max-width: 480px) {
+    header{
+        flex-direction: column;
+        height: 120px;
+    }
+    .pokemon-logo{
+        margin-left: 0;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+    .profile-img{
+        margin-right: 0;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        border: 2px solid black;
+    }
+    .header-input {
+        position: absolute;
+        top: 67px;
+    }
+    .header-input input {
+        height: 35px;
+    } 
+    .container-cards--info{
+        width: 38%;
+    }
+
+    .img-target {
+        margin: 20px auto 50px;
+    }   
+}
