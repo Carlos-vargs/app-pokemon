@@ -4,7 +4,7 @@ const value_name = document.getElementById('name')
 const value_email = document.getElementById('email')
 const value_password = document.getElementById('password')
 const paragraph = document.getElementById('warnings')
-let redirectPage = "http:/proyecto/main/index.html"
+let redirectPage = "http:/proyecto/Cards/index_cards.html"
 
 value_form.addEventListener('submit', e => {
     e.preventDefault()
@@ -26,15 +26,12 @@ value_form.addEventListener('submit', e => {
     if (value_password.value.length < 8) {
         warnings += `The password is not valid <br>`
         enter = true
-        if (enter) {
-            paragraph.innerHTML = warnings
-        }
+    }
+    if (enter) {
+        paragraph.innerHTML = warnings
+    }
+    if (paragraph.innerHTML === "") {
+        location.href = redirectPage
     }
 })
 
-
-if (paragraph.innerHTML === "") {
-    location.href = redirectPage
-}
-
-console.log(value_form.value);
