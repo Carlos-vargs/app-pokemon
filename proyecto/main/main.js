@@ -110,4 +110,5 @@ window.addEventListener('click', (e) => {
         htmlScroll.style.overflow= 'auto';
     }
 });
+
 fetchDataPokemon();
