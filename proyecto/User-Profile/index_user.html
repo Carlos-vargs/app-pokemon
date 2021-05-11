@@ -11,12 +11,16 @@
     <main>
         <form action="" id="Complete-information" class="container-form">  
             <div class="container-image-profile">
-                    <h1 class="title-profile">Personal Data</h1>
+                <div class="container-edit-profile">
+                    <h1 class="title-profile">Personal Data </h1>
+                    <span class="edit-profile" title="Edit your profile"></span>
+                </div>
                 <div class="container--user_profile">
                     <img id="preview_image" class="user_profile">
-                </div>        
+                </div>  
+                <!-- obtener la imagen de la galeria-->
                 <input type="file" id="get_reference">
-                <label for="get_reference" class="button_profile"></label>
+                <label for="get_reference" class="button_profile" title="Change your image"></label>
             </div>
             <div class="container-information--acount">
                 <label class="text-title" for="name">Your Name</label>
@@ -42,10 +46,9 @@
                         <label for="female" class="text-title adjust-text">Female</label>
                     </div>
                 </div>
-                <!-- <button type="submit">Create Account</button>      -->
+                <!-- <button type="submit">Create Account</button>-->
             </div>
         </form> 
-        <img src="../icons/pikachu_res .png" alt="" class="pikachu_res">
     </main>
 </body>
 <script src="./main_user.js"></script>

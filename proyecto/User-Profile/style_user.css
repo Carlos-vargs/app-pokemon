@@ -23,6 +23,12 @@ html{
     align-items: center;
 }
 
+.container-edit-profile{
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
 .title-profile{
     font-size: 2.3rem;
     font-weight: bold;
@@ -30,6 +36,14 @@ html{
     color: #424A59;
 }
 
+.edit-profile{
+    background-image: url("../icons/edit-profile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+}
 
 .container--user_profile{
     width: 150px;
@@ -38,14 +52,6 @@ html{
     overflow: hidden;
     border: 2px solid #D9E0FE;
 }
-/* 
-.container--user_profile:hover{
-    border: 2px solid #8B11BF;
-    border: 1px solid #; 
-    box-shadow: 0 2px 6px rgba(152, 36, 202, 0.781);
-    transition: all 0.2s ease;
-} 
-*/
 
 .user_profile{
     width: 100%; 
@@ -68,8 +74,6 @@ html{
     margin-left: 147px;
 }
 
-/*container of information of the user ( name, nickname, gmail, birthday )*/
-
 .container-information--acount{
     display: flex;
     flex-direction: column;
@@ -77,7 +81,7 @@ html{
     max-width: 400px;
     min-width: 226px;
     width: 90%;
-    margin: 10% 0;
+    margin: 10% 0 0 0;
 }
 
 .text-title {
@@ -132,8 +136,8 @@ html{
     font-size: 1.6rem;
 }
 
-.pikachu_res{
-    position: absolute;
-    width: 100px;
+@media (max-width: 480px){
+    .container-information--acount {
+        margin: 10% 0;
+    }
 }
-
