@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+    background-color: #F1F1F1;
+    font-family: 'Lato', sans-serif;
+}
+
+.container-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container-image-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-profile{
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 20px auto;
+    color: #424A59;
+}
+
+
+.container--user_profile{
+    width: 150px;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #D9E0FE;
+}
+/* 
+.container--user_profile:hover{
+    border: 2px solid #8B11BF;
+    border: 1px solid #; 
+    box-shadow: 0 2px 6px rgba(152, 36, 202, 0.781);
+    transition: all 0.2s ease;
+} 
+*/
+
+.user_profile{
+    width: 100%; 
+    background-color: #DADFFD;
+}
+
+#get_reference{
+    display: none;
+}
+
+.button_profile{
+    background-image: url("../icons/profile_camera.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: -13px;
+    margin-left: 147px;
+}
+
+/*container of information of the user ( name, nickname, gmail, birthday )*/
+
+.container-information--acount{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    min-width: 226px;
+    width: 90%;
+    margin: 10% 0;
+}
+
+.text-title {
+    color:#424A59;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 0 2% 5%;
+}
+
+.text-profile{
+    color: #0B2543;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-left: 3%;
+}
+
+.information-acount{
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    min-width: 190px;
+    width: 90%;
+    height: 48px;
+    border-radius: 7px;
+    background-color: #D0D9F2;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    border: none;
+    outline: none;
+}
+
+.information-acount--gender{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 6%;
+}
+
+.buttons-gender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D0D9F2;
+    max-width: 300px;
+    min-width: 100px;
+    width: 35%;
+    height: 47px;
+    border-radius: 7px;
+}
+
+.adjust-text{
+    font-size: 1.6rem;
+}
+
+.pikachu_res{
+    position: absolute;
+    width: 100px;
+}
+
