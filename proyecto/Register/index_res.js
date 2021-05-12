@@ -6,6 +6,7 @@ const value_password = document.getElementById('password')
 const paragraph = document.getElementById('warnings')
 let redirectPage = "http:/proyecto/Cards/index_cards.html"
 
+
 value_form.addEventListener('submit', e => {
     e.preventDefault()
 
@@ -33,5 +34,5 @@ value_form.addEventListener('submit', e => {
     if (paragraph.innerHTML === "") {
         location.href = redirectPage
     }
-})
 
+})
