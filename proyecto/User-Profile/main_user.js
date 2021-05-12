@@ -1,10 +1,9 @@
 // get the reference
 const get_input = document.getElementById('get_reference');
 const preview_img = document.getElementById('preview_image');
+const go_back = document.getElementById('regresar');
 
 //function IIFE
-/*
-*/
 (() => {
     let picture = JSON.parse(localStorage.getItem('UserImg'))
     if (picture === null) {
@@ -24,3 +23,8 @@ get_input.addEventListener("change", () => {
     localStorage.setItem('UserImg',  JSON.stringify( make_url ))
 })
 
+go_back.addEventListener("click", () => {
+    let redirection = "http:/proyecto/User-Profile/index_user.html"
+    location.href = redirection
+
+})
