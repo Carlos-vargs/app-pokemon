@@ -113,6 +113,14 @@ window.addEventListener('click', (e) => {
     }
 });
 
+(() => {
+    let picture = JSON.parse(localStorage.getItem('UserImg'))
+    if (picture === null) {
+        user_profile.src = ""
+    } else {
+        user_profile.src = picture
+    }
+})()
 
 user_profile.addEventListener("click", () => {
     let redirectionProfile = "http:/proyecto/User-Profile/index_user.html"
