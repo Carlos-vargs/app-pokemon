@@ -70,7 +70,7 @@ function renderPokemon(pokeData) {
     
     
     infCards.addEventListener("click", () => {
-        pokeContainerModal.style.display = 'block';
+        pokeContainerModal.style.display = 'flex';
         htmlScroll.style.overflow= 'hidden';
         poke_Img.src = pokeImg
         poke_Img.alt = `Pokemon ${pokeData.name}` 
