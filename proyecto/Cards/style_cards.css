@@ -152,7 +152,6 @@ main{
     max-width: 400px;
     min-width: 100px;
     width: 70%;
-    height: auto; 
     padding: 20px;
     margin: auto;
     border-radius: 20px;
@@ -191,7 +190,18 @@ main{
     padding: 4px;
 }
 
-.pokemon--not-found{
+.button_select-pokemon{
+    font-weight: 600;
+    width: 30%;
+    border: none;
+    background-color: red;
+    border-radius: 16px;
+    margin: 2% auto;
+    color: wheat;
+    padding: 2%;
+}
+
+/* .pokemon--not-found{
     display: none;
     position: absolute;
     top: 40%;
@@ -200,7 +210,7 @@ main{
     text-align: center;
     font-weight: bold;
     color: gray;
-}
+} */
 
 
 @media (max-width: 480px) {

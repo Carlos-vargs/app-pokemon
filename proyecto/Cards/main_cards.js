@@ -88,7 +88,7 @@ function renderPokemon(pokeData) {
         fetch(pokeBio)
         .then(res => isResOk(res))
         .then(dataBio => {
-            let caseBio = dataBio.flavor_text_entries[0].flavor_text
+            let caseBio = dataBio.flavor_text_entries[1].flavor_text
             poke_bio.innerHTML = `Description: ${firstLetter(caseBio.toLowerCase())}`
             /*
             color_target.style.backgroundColor = dataBio.color.name
