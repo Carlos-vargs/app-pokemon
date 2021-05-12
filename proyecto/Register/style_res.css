@@ -6,18 +6,17 @@
 
 html{
     font-size: 62.5%;
-    background: rgb(242,183,5);
     font-family: 'Lato', sans-serif;
+    background: rgb(242,183,5);
     background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
 }
 
 main{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
     width: 100%;
-    height: auto;
 }
 
 .poke-portada{
@@ -52,13 +51,12 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 350px;
+    max-width: 360px;
     min-width: 300px;
     width: 100%;
-    height: auto;
     border-radius: 20px;
     background-color: white; 
-    margin-top: 5%;
+    margin: 5% 0;
 }
 
 .form--top{
@@ -147,5 +145,11 @@ main{
     .container-pokeForm{
         width: 93%;
         margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
     }
 }
