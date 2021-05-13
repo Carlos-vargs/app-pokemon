@@ -18,16 +18,27 @@ value_form.addEventListener('submit', e => {
     if (value_name.value.length < 6) {
         warnings += `The name is invalid <br>`
         enter = true
-    }
+    } else {
+        let userNickname =  value_name.value
+        localStorage.setItem('user-name', JSON.stringify( userNickname ) )
+    };
+
     if (!regexEmail.test(value_email.value)) {
         warnings += `The email is not valid <br>`
         enter = true
-    }
-    
+    } else {
+        let userGmail =  value_email.value
+        localStorage.setItem('user-gmail', JSON.stringify( userGmail ) )
+    };
+
     if (value_password.value.length < 8) {
         warnings += `The password is not valid <br>`
         enter = true
-    }
+    } else {
+        let userPass = value_password.value
+        localStorage.setItem('user-password', JSON.stringify( userPass ) )
+    };
+    
     if (enter) {
         paragraph.innerHTML = warnings
     }
