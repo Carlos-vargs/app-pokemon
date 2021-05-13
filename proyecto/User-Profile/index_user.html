@@ -10,51 +10,49 @@
 <body>
     <main>
         <form action="" id="Complete-information" class="container-form">
-            <!-- 1  -->
             <div class="container-image-profile">
                 <div class="container-edit-profile">
                     <h1 class="title-profile">Personal Data </h1>
-                    <span class="edit-profile" title="Edit your profile"></span>
+                    <span class="edit-profile" title="Edit your profile" id="edit_profile"></span>
                 </div>
                 <div class="container--user_profile">
                     <img id="preview_image" class="user_profile">
                 </div>
-                <!-- obtener la imagen de la galeria-->
                 <input type="file" id="get_reference">
                 <label for="get_reference" class="button_profile" title="Change your image"></label>
             </div>
+            <!-- cambiar la informacion  -->
             <div class="all-information-container">
             <div class="container-information--acount">
-                <label class="text-title" for="name">Your Name</label>
-                <input type="text" id="name" class="information-acount" disabled>
+                <label class="text-title" for="name_user">Your Name</label>
+                <input type="text" id="name_user" class="information-acount"  disabled>
+                <!-- -->
+                <label class="text-title" for="nickname_user">Nickname</label>
+                <input type="text" id="nickname_user" class="information-acount"  disabled>
 
-                <label class="text-title" for="nickname">Nickname</label>
-                <input type="text" id="nickname_user" class="information-acount" disabled>
-
-                <label class="text-title" for="email">Email</label>
-                <input type="email" id="email" class="information-acount" disabled>
+                <label class="text-title" for="email_user">Email</label>
+                <input type="email" id="email_user" class="information-acount" autocomplete="email" disabled>
             </div>
-<!-- 2 -->
             <div class="container-information--acount">
-                <label class="text-title" for="user_birthday">Date of Birth</label>
-                <input type="date" id="user_birthday" class="information-acount" disabled>
+                <label class="text-title" for="birthday_user">Date of Birth</label>
+                <input type="date" id="birthday_user" class="information-acount" disabled>
 
                 <label class="text-title">Gender</label>
                 <div class="information-acount--gender">
                     <div class="buttons-gender">
-                        <input id="male" type="radio" name="male-female" value="male" checked>
+                        <input id="male" type="radio" name="male-female" value="male" disabled>
                         <label for="male" class="text-title adjust-text">Male</label>
                     </div>
-                    <div class="buttons-gender">
-                        <input id="female" type="radio" name="male-female" value="female">
+                    <div class="buttons-gender" id="buttonF">
+                        <input id="female" type="radio" name="male-female"  disabled>
                         <label for="female" class="text-title adjust-text">Female</label>
                     </div>
                 </div>
-                <button type="submit" class="button--edit-profile text-title">Save</button>
+                <button type="submit" class="button--edit-profile text-title" id="button_Profile">Save</button>
+                <!-- <button id="regresar" class="button-back">Return</button> -->
             </div>
         </div>
-        </form>
-        <button id="regresar">regresar</button>
+    </form>
     </main>
 </body>
 <script src="./main_user.js"></script>
