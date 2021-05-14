@@ -57,16 +57,19 @@ edit_profile.addEventListener("click", () => {
     button_Profile.style.display = "block";
 })
 
-
 form_values.addEventListener("submit", () => {
     const newInfoUser = nickname_user.value
-    localStorage.setItem('user-name', newInfoUser)
+    localStorage.setItem('user-name', newInfoUser)    
 })
 
-    /*
+
+
+
+
+/*
     go_back.addEventListener("click", () => {
         let goBack = "http:/proyecto/Cards/index_cards.html"
         location.href = goBack
     
     })
-    */
+*/
