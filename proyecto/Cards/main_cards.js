@@ -130,7 +130,8 @@ if ( getPic === null) {
 }
 if (img_user.src === "" ) {
     img_user.src = getPic
-    
 }
+
+// console.log(location.href);
 
 fetchDataPokemon();
