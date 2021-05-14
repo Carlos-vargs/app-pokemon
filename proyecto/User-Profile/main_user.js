@@ -1,7 +1,7 @@
 // get the reference
 const get_input = document.getElementById('get_reference');
 const preview_img = document.getElementById('preview_image');
-//const go_back = document.getElementById('regresar');
+const go_back = document.getElementById('back');
 const edit_profile = document.getElementById('edit_profile');
 const inf_account = document.getElementsByClassName('information-acount');
 const button_Profile = document.getElementById('button_Profile');
@@ -12,7 +12,9 @@ const form_values = document.getElementById('Complete-information')
 const name_user  = document.getElementById('name_user');
 const nickname_user = document.getElementById('nickname_user');
 const email_user = document.getElementById('email_user');
-// const gender_button = document.getElementById('buttonF');
+const birthday_user = document.getElementById('birthday_user');
+const button = document.getElementById('button-hidden');
+const button2 = document.getElementById('btn-hidden');
 
 //function IIFE
 (() => {
@@ -23,16 +25,18 @@ const email_user = document.getElementById('email_user');
         preview_img.src = picture
     };
 
-    let getDataName =  JSON.parse( localStorage.getItem('user-name') )
+    let getNickName =  JSON.parse( localStorage.getItem('user-nickName') )
     let getDataEmail = JSON.parse( localStorage.getItem('user-gmail') )
-    // let getDataPass = JSON.parse ( localStorage.getItem('user-password') )
+    let getNameUser = JSON.parse ( localStorage.getItem('user-name') )
+    let getBirthday = JSON.parse ( localStorage.getItem('user-birthday') )
 
-    if (getDataName,getDataEmail  === null) {
+    if (getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
     } else {
-        nickname_user.value = getDataName
+        nickname_user.value = getNickName
         email_user.value = getDataEmail
-        // name_user.value = getDataPass
+        name_user.value = getNameUser
+        birthday_user.value = getBirthday
     };
 })()
 
@@ -58,18 +62,34 @@ edit_profile.addEventListener("click", () => {
 })
 
 form_values.addEventListener("submit", () => {
-    const newInfoUser = nickname_user.value
-    localStorage.setItem('user-name', newInfoUser)    
+    let newNickName = JSON.stringify(nickname_user.value)
+    let newEmail = JSON.stringify(email_user.value)
+    let username = JSON.stringify(name_user.value)
+    let userBirthday = JSON.stringify(birthday_user.value)
+
+    localStorage.setItem('user-nickName', newNickName)   
+    localStorage.setItem('user-gmail', newEmail)
+    localStorage.setItem('user-name', username) 
+    localStorage.setItem('user-birthday', userBirthday)
+ 
+})
+
+genderM.addEventListener('change', () => {
+    if (genderM.checked) {
+        button2.style.display = 'none'
+    }
+})
+
+genderF.addEventListener('change', () => {
+    if (genderf.checked) {
+    button.style.display = 'none'        
+    }
 })
 
 
-
-
-
+go_back.addEventListener("click", () => {
+    let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
+    location.href = goBack    
+})
 /*
-    go_back.addEventListener("click", () => {
-        let goBack = "http:/proyecto/Cards/index_cards.html"
-        location.href = goBack
-    
-    })
 */
