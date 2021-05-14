@@ -4,30 +4,34 @@ const isResOk = (res) => {
     if (!res.ok)
       throw new Error(res.status);
       return res.json()
-}
+};
 
 //search pokemons with input 
-const search_pokemons = document.getElementById('search-pokemons')
+const search_pokemons = document.getElementById('search-pokemons');
 const allPokemonContainer = document.getElementById('cards-content');
-const pokemonNotFound = document.getElementById('notFound')
+const pokemonNotFound = document.getElementById('notFound');
 //modal
-const pokeContainerModal = document.getElementById('pokeBlock')
-const pokeClose = document.getElementById('closeSpan') 
+const pokeContainerModal = document.getElementById('pokeBlock');
+const pokeClose = document.getElementById('closeSpan');
 //info Card
-const poke_Img = document.getElementById('pokeImgs')
-const modal_names = document.getElementById('pokemon-name')
-const poke_Damage = document.getElementById('pokeDamage')
-const poke_xp = document.getElementById('pokeXp')
-const poke_hab = document.getElementById('pokeHability')
-const color_target = document.getElementById('color-target')
-const poke_weight = document.getElementById('poke-weight')
-const poke_color = document.getElementById('poke-color')
-const poke_types = document.getElementById('pokeTypes')
-const poke_description = document.getElementById('pokeDescription')
-const poke_bio = document.getElementById('pokeBio')
-const htmlScroll = document.getElementsByTagName('html')[0]
-const user_profile = document.getElementById('user_profile')
-
+const poke_Img = document.getElementById('pokeImgs');
+const modal_names = document.getElementById('pokemon-name');
+const poke_Damage = document.getElementById('pokeDamage');
+const poke_xp = document.getElementById('pokeXp');
+const poke_hab = document.getElementById('pokeHability');
+const color_target = document.getElementById('color-target');
+const poke_weight = document.getElementById('poke-weight');
+const poke_color = document.getElementById('poke-color');
+const poke_types = document.getElementById('pokeTypes');
+const poke_description = document.getElementById('pokeDescription');
+const poke_bio = document.getElementById('pokeBio');
+const htmlScroll = document.getElementsByTagName('html')[0];
+const user_profile = document.getElementById('user_profile');
+// user profile
+const user_name = document.getElementById('user-name--cards');
+const img_user = document.getElementById('profile-img--cards');
+const getName = JSON.parse( localStorage.getItem('user-name') );
+const getPic = JSON.parse( localStorage.getItem('UserImg') );
 
 function fetchDataPokemon() {
     fetch(URL)
@@ -119,6 +123,14 @@ user_profile.addEventListener("click", () => {
 })
 
 
-console.log(location.href);
+user_name.innerHTML = getName
+
+if ( getPic === null) {
+    img_user.src = "../icons/Pokemon_Trainer_Boy.png"
+}
+if (img_user.src === "" ) {
+    img_user.src = getPic
+    
+}
 
 fetchDataPokemon();

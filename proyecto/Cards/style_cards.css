@@ -24,15 +24,34 @@ header {
     height: auto;
     margin-left: 36px;
 }
+
+.container-profile--img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 36px;
+    cursor: pointer;
+
+}
+
 .profile-img{
-    min-width: 40px;
     max-width: 50px;
+    min-width: 40px;
     width: 10%;
     height: auto;
     border-radius: 100%;
-    margin-right: 36px;
     background-image: linear-gradient(315deg, #f9484a 0%, #fbd72b 74%);
 }
+
+.user-name{
+    color: #dfe1e5;
+    font-weight: 600;
+    margin-top: 6%;
+    font-size: 1.5rem;
+}
+
+
 .header-input{
     min-width: 100px;
     max-width: 350px;
@@ -224,7 +243,7 @@ main{
         left: 5px;
         top: 5px;
     }
-    .profile-img{
+    .container-profile--img{
         margin-right: 0;
         position: absolute;
         top: 5px;
