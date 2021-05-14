@@ -13,9 +13,9 @@ html{
 
 main{
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
-    /* height: 100vh; */
 }
 
 .container-form{
@@ -26,7 +26,7 @@ main{
     max-width: 890px;
     width: 100%;
     margin: auto;
-    margin-top: 4%;
+    margin-top: 10px;
 }
 
 .container-image-profile{
@@ -180,12 +180,13 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3%;
-    margin: 10% auto;
+    padding: 10px;
+    margin: 30px auto;
     color: #0B2543;
     border-radius: 20px;
     border: none;
-    width: 25%;
+    width: 95px;
+    outline: none;
 }
 
 .button-back:hover,
