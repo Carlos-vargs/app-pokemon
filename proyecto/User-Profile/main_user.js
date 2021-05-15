@@ -25,10 +25,11 @@ const button2 = document.getElementById('btn-hidden');
         preview_img.src = picture
     };
 
-    let getNickName =  JSON.parse( localStorage.getItem('user-nickName') )
+    let getNickName =  JSON.parse( localStorage.getItem('user-name') )
+    let getNameUser = JSON.parse ( localStorage.getItem('user-nick') )
     let getDataEmail = JSON.parse( localStorage.getItem('user-gmail') )
-    let getNameUser = JSON.parse ( localStorage.getItem('user-name') )
     let getBirthday = JSON.parse ( localStorage.getItem('user-birthday') )
+    let getGender = JSON.parse ( localStorage.getItem('user-checked--m') )
 
     if (getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
@@ -38,6 +39,11 @@ const button2 = document.getElementById('btn-hidden');
         name_user.value = getNameUser
         birthday_user.value = getBirthday
     };
+
+    if (getGender) {
+        button2.style.display = 'none'
+    }
+
 })()
 
 get_input.addEventListener("change", () => {
@@ -59,6 +65,7 @@ edit_profile.addEventListener("click", () => {
     genderF.disabled = false
     
     button_Profile.style.display = "block";
+    button2.style
 })
 
 form_values.addEventListener("submit", () => {
@@ -67,25 +74,18 @@ form_values.addEventListener("submit", () => {
     let username = JSON.stringify(name_user.value)
     let userBirthday = JSON.stringify(birthday_user.value)
 
-    localStorage.setItem('user-nickName', newNickName)   
+    localStorage.setItem('user-nick', newNickName)   
     localStorage.setItem('user-gmail', newEmail)
     localStorage.setItem('user-name', username) 
     localStorage.setItem('user-birthday', userBirthday)
- 
-})
-
-genderM.addEventListener('change', () => {
+    
     if (genderM.checked) {
-        button2.style.display = 'none'
+        localStorage.setItem('user-checked--m', genderM.checked )
+    } 
+    if (genderF.checked) {
+        localStorage.setItem('user-checked--f', genderF.checked )
     }
 })
-
-genderF.addEventListener('change', () => {
-    if (genderf.checked) {
-    button.style.display = 'none'        
-    }
-})
-
 
 go_back.addEventListener("click", () => {
     let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
