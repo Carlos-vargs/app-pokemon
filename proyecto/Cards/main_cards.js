@@ -30,7 +30,7 @@ const user_profile = document.getElementById('user_profile');
 // user profile
 const user_name = document.getElementById('user-name--cards');
 const img_user = document.getElementById('profile-img--cards');
-const getName = JSON.parse( localStorage.getItem('user-name') );
+const getName = JSON.parse( localStorage.getItem('user-nick') );
 const getPic = JSON.parse( localStorage.getItem('UserImg') );
 
 function fetchDataPokemon() {
