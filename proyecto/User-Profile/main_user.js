@@ -13,7 +13,7 @@ const name_user  = document.getElementById('name_user');
 const nickname_user = document.getElementById('nickname_user');
 const email_user = document.getElementById('email_user');
 const birthday_user = document.getElementById('birthday_user');
-const button = document.getElementById('button-hidden');
+const button1 = document.getElementById('button-hidden');
 const button2 = document.getElementById('btn-hidden');
 
 //function IIFE
@@ -25,23 +25,29 @@ const button2 = document.getElementById('btn-hidden');
         preview_img.src = picture
     };
 
-    let getNickName =  JSON.parse( localStorage.getItem('user-name') )
-    let getNameUser = JSON.parse ( localStorage.getItem('user-nick') )
+    let getNameUser = JSON.parse ( localStorage.getItem('user-name') )
+    let getNickName =  JSON.parse( localStorage.getItem('user-nick') ) 
     let getDataEmail = JSON.parse( localStorage.getItem('user-gmail') )
     let getBirthday = JSON.parse ( localStorage.getItem('user-birthday') )
     let getGender = JSON.parse ( localStorage.getItem('user-checked--m') )
+    let getGender_1 = JSON.parse ( localStorage.getItem('user-checked--f') )
 
     if (getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
     } else {
+        name_user.value = getNameUser
         nickname_user.value = getNickName
         email_user.value = getDataEmail
-        name_user.value = getNameUser
         birthday_user.value = getBirthday
     };
 
     if (getGender) {
         button2.style.display = 'none'
+        genderM.style.display = 'none'
+    }
+    if (getGender_1) {
+        button1.style.display = 'none'
+        genderF.style.display = 'none'
     }
 
 })()
@@ -65,7 +71,15 @@ edit_profile.addEventListener("click", () => {
     genderF.disabled = false
     
     button_Profile.style.display = "block";
-    button2.style
+
+    button1.style.display = "flex"
+    button2.style.display = "flex"
+    genderM.style.display = 'flex'
+    genderF.style.display = 'flex'
+
+    localStorage.removeItem('user-checked--m')
+    localStorage.removeItem('user-checked--f')
+
 })
 
 form_values.addEventListener("submit", () => {
