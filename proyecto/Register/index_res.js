@@ -21,7 +21,7 @@ value_form.addEventListener('submit', e => {
         value_name.focus()
     } else {
         let userNickname =  value_name.value
-        localStorage.setItem('user-name', JSON.stringify( userNickname ) )
+        localStorage.setItem('user-nick', JSON.stringify( userNickname ) )
     };
 
     if (!regexEmail.test(value_email.value)) {
