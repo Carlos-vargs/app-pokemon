@@ -5,7 +5,9 @@ const value_email = document.getElementById('email')
 const value_password = document.getElementById('password')
 const paragraph = document.getElementById('warnings')
 let redirectPage = "http:/proyecto/Cards/index_cards.html"
-
+// login user 
+const login_redirect = document.getElementById('login-redirect')
+const login_img = document.getElementById ('change_pokemon')
 
 value_form.addEventListener('submit', e => {
     e.preventDefault()
@@ -50,4 +52,12 @@ value_form.addEventListener('submit', e => {
         location.href = redirectPage
     }
 
+})
+
+login_redirect.addEventListener('click', () => {
+
+    //change img 
+    login_img.src = "../icons/pokemons-portada(3).png"
+    login_img.style.width = "55%"
+    login_img.style.marginTop = "0"
 })

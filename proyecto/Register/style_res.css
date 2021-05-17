@@ -56,7 +56,7 @@ main{
     width: 100%;
     border-radius: 20px;
     background-color: white; 
-    margin: 5% 0;
+    margin: 4% 0;
 }
 
 .form--top{
@@ -140,6 +140,12 @@ main{
     padding: 2% 0;
     font-size: 1.5rem;
     margin: auto;
+}
+
+.Login-redirect{
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 5%;
 }
 
 @media (max-width: 480px){
