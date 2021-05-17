@@ -9,6 +9,7 @@ html{
     font-family: 'Lato', sans-serif;
     background: rgb(242,183,5);
     background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
+    overflow-x: hidden;
 }
 
 main{
@@ -59,6 +60,18 @@ main{
     margin: 4% 0;
 }
 
+.form_hidden{
+    /* display: none; */
+    position: absolute;
+    left: 100vw; 
+}
+
+/* 
+.container-pokeForm:hover {
+    transform: translateY(100%);
+    transition: all 1s ease;
+} */
+
 .form--top{
     display: flex;
     justify-content: center;
@@ -73,6 +86,7 @@ main{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
 
 .main-form{
     display: flex;
@@ -95,7 +109,7 @@ main{
     margin: 4% 0;
 }
 
-.main-form--text:nth-child(7){
+.text-bold {
     font-weight: bold;
 }
 
