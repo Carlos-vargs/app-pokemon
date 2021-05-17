@@ -32,6 +32,7 @@ const user_name = document.getElementById('user-name--cards');
 const img_user = document.getElementById('profile-img--cards');
 const getName = JSON.parse( localStorage.getItem('user-nick') );
 const getPic = JSON.parse( localStorage.getItem('UserImg') );
+const button_select = document.getElementById('select-pokemon');
 
 function fetchDataPokemon() {
     fetch(URL)
@@ -131,6 +132,11 @@ if ( getPic === null) {
 if (img_user.src === "" ) {
     img_user.src = getPic
 }
+
+
+button_select.addEventListener('click', () => {
+    alert('hola')
+})
 
 // console.log(location.href);
 
