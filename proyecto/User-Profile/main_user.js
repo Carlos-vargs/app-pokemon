@@ -8,13 +8,14 @@ const button_Profile = document.getElementById('button_Profile');
 const genderM = document.getElementById('male');
 const genderF = document.getElementById('female');
 //form values
-const form_values = document.getElementById('Complete-information')
+const form_values = document.getElementById('Complete-information');
 const name_user  = document.getElementById('name_user');
 const nickname_user = document.getElementById('nickname_user');
 const email_user = document.getElementById('email_user');
 const birthday_user = document.getElementById('birthday_user');
 const button1 = document.getElementById('button-hidden');
 const button2 = document.getElementById('btn-hidden');
+//select your pokemon
 
 //function IIFE
 (() => {
@@ -105,5 +106,3 @@ go_back.addEventListener("click", () => {
     let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
     location.href = goBack    
 })
-/*
-*/
