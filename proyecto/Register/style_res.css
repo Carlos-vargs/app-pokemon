@@ -48,6 +48,17 @@ main{
     font-weight: bold;
 }
 
+.container-forms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 360px;
+    min-width: 300px;
+    width: 100%;
+    margin-top: 4%;
+    overflow-x: hidden  ;
+}
+
 .container-pokeForm{
     display: flex;
     flex-direction: column;
@@ -56,21 +67,15 @@ main{
     min-width: 300px;
     width: 100%;
     border-radius: 20px;
-    background-color: white; 
-    margin: 4% 0;
+    background-color: white;
+    /* margin: 4% 0; */
+
 }
 
 .form_hidden{
-    /* display: none; */
-    position: absolute;
-    left: 100vw; 
+    display: none;
+    margin-left: 100%;
 }
-
-/* 
-.container-pokeForm:hover {
-    transform: translateY(100%);
-    transition: all 1s ease;
-} */
 
 .form--top{
     display: flex;
@@ -96,7 +101,7 @@ main{
     min-width: 250px;
     width: 90%;
     margin-top: 10%;
-    
+
 }
 .main-form--text{
     font-size: 1.6rem;
@@ -139,7 +144,7 @@ main{
     border-radius: 10px;
     margin-top: 10%;
     padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);    
+    background: rgba(0,0,0,0);
 }
 .button-form:hover,
 .button-form:focus {

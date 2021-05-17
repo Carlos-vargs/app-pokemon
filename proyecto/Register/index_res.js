@@ -12,6 +12,8 @@ const reverse = document.getElementById('account-redirect')
 const traslate_form = document.getElementById('traslate-create_acount')
 const traslate_login = document.getElementById('traslate-login')
 
+
+
 value_form.addEventListener('submit', e => {
     e.preventDefault()
 
@@ -56,9 +58,8 @@ value_form.addEventListener('submit', e => {
     }
 
 })
-
 login_redirect.addEventListener('click', () => {
-
+    
     login_img.src = "../icons/pokemons-portada(3).png"
     login_img.style.marginTop = "0"
     
@@ -66,20 +67,28 @@ login_redirect.addEventListener('click', () => {
     traslate_form.style.transition = 'all 3s ease'
     
     setTimeout(() => {
-        traslate_login.style.transform = 'translateX(-36vw)'
-        traslate_login.style.transition = 'all 3s ease'
+        traslate_login.style.display = 'flex'
     }, 1000);
+    
+    setTimeout(() => {
+        traslate_login.style.marginLeft = '0'
+        traslate_login.style.transform = 'translateX(-50%)'
+        traslate_login.style.transition = 'all 3s ease'
+    }, 1100);
 })
 
 reverse.addEventListener('click', () => {
-
+    
     login_img.src = "../icons/pokesPortada.png"
     login_img.style.marginTop = "10%"    
-
+    
     traslate_form.style.transform = 'translateY(0)'
-    traslate_form.style.transition = 'all 3s ease'
-
-    traslate_login.style.transform = 'translateX(36vw)'
+    
+    traslate_login.style.transform = 'translateX(36%)'
     traslate_login.style.transition = 'all 3s ease'
 
+    setTimeout(() => {
+        traslate_login.style.display = 'none'
+        traslate_form.style.transition = 'all 3s ease'
+    }, 1000);
 })
