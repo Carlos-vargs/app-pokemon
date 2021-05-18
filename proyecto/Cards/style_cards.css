@@ -94,9 +94,15 @@ main{
 }
 
 .Poke-container {
-    display: flex;
+    display: none;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.preload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-cards--info{
@@ -231,6 +237,28 @@ main{
     color: gray;
 } */
 
+.preloader {
+    width: 70px;
+    height: 70px;
+    border: 5px solid #eee;
+    border-top: 5px solid #666;
+    border-radius: 50%;
+    animation-name: girar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin: 10% auto; 
+}
+  @keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
 @media (max-width: 480px) {
     header{
         flex-direction: column;
@@ -258,6 +286,14 @@ main{
     .container-cards--info{
         margin: 2%;
         width: 41%;
+    }
+
+    .main-input-container{
+        margin-top: 3%;
+    }
+
+    .preloader{
+        margin: 50% auto;
     }
 
     .img-target {

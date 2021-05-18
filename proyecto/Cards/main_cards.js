@@ -7,32 +7,33 @@ const isResOk = (res) => {
 };
 
 //search pokemons with input 
-const search_pokemons = document.getElementById('search-pokemons');
-const allPokemonContainer = document.getElementById('cards-content');
-const pokemonNotFound = document.getElementById('notFound');
+const search_pokemons = document.getElementById('search-pokemons')
+const allPokemonContainer = document.getElementById('cards-content')
+const pokemonNotFound = document.getElementById('notFound')
 //modal
-const pokeContainerModal = document.getElementById('pokeBlock');
-const pokeClose = document.getElementById('closeSpan');
+const pokeContainerModal = document.getElementById('pokeBlock')
+const pokeClose = document.getElementById('closeSpan')
 //info Card
-const poke_Img = document.getElementById('pokeImgs');
-const modal_names = document.getElementById('pokemon-name');
-const poke_Damage = document.getElementById('pokeDamage');
-const poke_xp = document.getElementById('pokeXp');
-const poke_hab = document.getElementById('pokeHability');
-const color_target = document.getElementById('color-target');
-const poke_weight = document.getElementById('poke-weight');
-const poke_color = document.getElementById('poke-color');
-const poke_types = document.getElementById('pokeTypes');
-const poke_description = document.getElementById('pokeDescription');
-const poke_bio = document.getElementById('pokeBio');
+const poke_Img = document.getElementById('pokeImgs')
+const modal_names = document.getElementById('pokemon-name')
+const poke_Damage = document.getElementById('pokeDamage')
+const poke_xp = document.getElementById('pokeXp')
+const poke_hab = document.getElementById('pokeHability')
+const color_target = document.getElementById('color-target')
+const poke_weight = document.getElementById('poke-weight')
+const poke_color = document.getElementById('poke-color')
+const poke_types = document.getElementById('pokeTypes')
+const poke_description = document.getElementById('pokeDescription')
+const poke_bio = document.getElementById('pokeBio')
 const htmlScroll = document.getElementsByTagName('html')[0];
-const user_profile = document.getElementById('user_profile');
+const user_profile = document.getElementById('user_profile')
 // user profile
-const user_name = document.getElementById('user-name--cards');
-const img_user = document.getElementById('profile-img--cards');
-const getName = JSON.parse( localStorage.getItem('user-nick') );
-const getPic = JSON.parse( localStorage.getItem('UserImg') );
-const button_select = document.getElementById('select-pokemon');
+const user_name = document.getElementById('user-name--cards')
+const img_user = document.getElementById('profile-img--cards')
+const getName = JSON.parse( localStorage.getItem('user-nick') )
+const getPic = JSON.parse( localStorage.getItem('UserImg') )
+const button_select = document.getElementById('select-pokemon')
+const preload_cards = document.getElementById('preload') 
 
 function fetchDataPokemon() {
     fetch(URL)
@@ -63,6 +64,8 @@ function renderPokemon(pokeData) {
     let infCards = cards_generator(pokeData) 
     allPokemonContainer.appendChild(infCards);
 
+    cardglobal = infCards
+
     search_pokemons.addEventListener('keyup', () => {
         let text = search_pokemons.value.toLowerCase()
         let pokenames = pokeData.name
@@ -71,8 +74,7 @@ function renderPokemon(pokeData) {
         } else {
             infCards.style.display = "none";
         }
-    })
-    
+    }) 
     
     infCards.addEventListener("click", () => {
         pokeContainerModal.style.display = 'flex';
@@ -90,6 +92,12 @@ function renderPokemon(pokeData) {
             poke_types.innerHTML = `Type: ${firstLetter(countTypes[0].type.name)}`
             poke_hab.innerHTML = `Ability: ${firstLetter(countHability[0].ability.name)}` 
         }
+        
+        button_select.addEventListener('click', () => {
+            localStorage.setItem('choosen', pokeData.name)
+            localStorage.setItem('img', JSON.stringify(pokeImg))
+        })
+
         fetch(pokeBio)
         .then(res => isResOk(res))
         .then(dataBio => {
@@ -132,9 +140,14 @@ if (img_user.src === "" ) {
     img_user.src = getPic
 }
 
+let preload = document.createElement('div')
+preload.classList.add('preloader')
 
-button_select.addEventListener('click', () => {
-    //code
-})
+preload_cards.appendChild(preload)
 
-fetchDataPokemon();
+fetchDataPokemon()
+
+setTimeout(() => {
+    preload_cards.style.display = "none"
+    allPokemonContainer.style.display = "flex"
+}, 2000);
