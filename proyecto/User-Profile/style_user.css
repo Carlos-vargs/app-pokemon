@@ -46,6 +46,7 @@ main{
     font-weight: bold;
     margin-bottom: 4%;
     color: #424A59;
+    text-align: center;
 }
 
 .edit-profile{
@@ -70,6 +71,7 @@ main{
 .user_profile{
     width: 100%;
     background-color: #DADFFD;
+    background-size: cover;
 }
 
 #get_reference{
@@ -194,6 +196,26 @@ main{
     color: white;
     background-color:#D9072D;
     transition: all 1s ease;
+}
+
+.container-pokebolas{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.pokebolas {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 2px solid #D9E0FE;
+    margin: 2%;
 }
 
 
