@@ -231,7 +231,6 @@ main{
     color: gray;
 } */
 
-
 @media (max-width: 480px) {
     header{
         flex-direction: column;

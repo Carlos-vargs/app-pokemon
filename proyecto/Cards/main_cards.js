@@ -100,7 +100,6 @@ function renderPokemon(pokeData) {
             if (dataBio.color.name === "yellow") {
                 color_target.style.backgroundColor = "#FFC000"
             }
-            tambien es posible hacer un switch que evalue los colores y dependiendo el color que le regresen lo cmabie por el color que estoy eligiendo 
             */
         })
     })
@@ -135,9 +134,7 @@ if (img_user.src === "" ) {
 
 
 button_select.addEventListener('click', () => {
-    alert('hola')
+    //code
 })
-
-// console.log(location.href);
 
 fetchDataPokemon();
