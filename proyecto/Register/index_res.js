@@ -32,11 +32,17 @@ sesion_user.addEventListener('submit', e => {
     if (name_login.value !== JSON.parse(equateName) ) {
         warnings += `The nickname is incorrect <br>`
         enter = true
+        name_login.style.borderColor = "red"
+        name_login.style.boxShadow = "none"
+        name_login.style.color = "red"
         name_login.focus()
     }
     if (password_login.value !== JSON.parse(equatePass)  ) {
         warnings += `The password is incorrect <br>`
         enter = true
+        password_login.style.borderColor = "red"
+        password_login.style.boxShadow = "none"
+        password_login.style.color = "red"
         password_login.focus()   
     }
     if (enter) {
