@@ -16,6 +16,9 @@ const birthday_user = document.getElementById('birthday_user');
 const button1 = document.getElementById('button-hidden');
 const button2 = document.getElementById('btn-hidden');
 //select your pokemon
+const pokeball1 = document.getElementById('pokeball1');
+const pokeball2 = document.getElementById('pokeball2');
+let text_pokeball = document.getElementById('text_pokeball');
 
 //function IIFE
 (() => {
@@ -106,3 +109,11 @@ go_back.addEventListener("click", () => {
     let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
     location.href = goBack    
 })
+
+
+
+let imgp = JSON.parse(localStorage.getItem('img'))
+pokeball1.src = imgp
+text_pokeball.innerHTML = localStorage.getItem('choosen')
+pokeball2.src = JSON.parse(localStorage.getItem('img2'))
+

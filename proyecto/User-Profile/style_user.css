@@ -200,6 +200,7 @@ main{
 
 .container-pokebolas{
     display: flex;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap-reverse;
     justify-content: center;
@@ -207,14 +208,11 @@ main{
     margin-top: 50px;
 }
 
-.pokebolas {
-    background-image: url("");
-    background-repeat: no-repeat;
-    background-size: cover;
+.pokeball {
     width: 100px;
     height: 100px;
-    border-radius: 100%;
-    border: 2px solid #D9E0FE;
+    /* border-radius: 100%; */
+    /* border: 2px solid #D9E0FE; */
     margin: 2%;
 }
 
