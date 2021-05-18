@@ -11,13 +11,47 @@ const login_img = document.getElementById ('change_pokemon')
 const reverse = document.getElementById('account-redirect')
 const traslate_form = document.getElementById('traslate-create_acount')
 const traslate_login = document.getElementById('traslate-login')
+//information of the login user 
+const sesion_user = document.getElementById('sesion-user')
+const name_login = document.getElementById('name_login')
+const password_login = document.getElementById('password_login')
+const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
+const warnings_login = document.getElementById('warnings_login')
+
+sesion_user.addEventListener('submit', e => {
+    e.preventDefault()
+
+    let warnings = ""
+    let enter = false
+    warnings_login.innerHTML = ""
 
 
+    let equateName = localStorage.getItem('user-nick')
+    let equatePass = localStorage.getItem('user-password')
+
+    if (name_login.value !== JSON.parse(equateName) ) {
+        warnings += `The nickname is incorrect <br>`
+        enter = true
+        name_login.focus()
+    }
+    if (password_login.value !== JSON.parse(equatePass)  ) {
+        warnings += `The password is incorrect <br>`
+        enter = true
+        password_login.focus()   
+    }
+    if (enter) {
+        warnings_login.innerHTML = warnings
+    }
+    if (warnings_login.innerHTML === "") {
+        location.href = redirectPage
+    }
+
+
+})
 
 value_form.addEventListener('submit', e => {
     e.preventDefault()
 
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/
     let warnings = ""
     let enter = false
     paragraph.innerHTML = ""
@@ -58,6 +92,8 @@ value_form.addEventListener('submit', e => {
     }
 
 })
+
+
 login_redirect.addEventListener('click', () => {
     
     login_img.src = "../icons/pokemons-portada(3).png"
