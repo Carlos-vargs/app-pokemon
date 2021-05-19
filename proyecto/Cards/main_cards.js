@@ -34,8 +34,9 @@ const getName = JSON.parse( localStorage.getItem('user-nick') )
 const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const button_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload') 
+const arr = []
 
-function fetchDataPokemon() {
+function fetchDataPokemon(){
     fetch(URL)
     .then(res => isResOk(res))
     .then(function (data) {
@@ -46,7 +47,7 @@ function fetchDataPokemon() {
     })
 }
 
-function pokemonInformation(pokemon) {
+function pokemonInformation(pokemon){
     let URL_INF = pokemon.url
     fetch(URL_INF)
     .then(res => res.json())
@@ -55,7 +56,24 @@ function pokemonInformation(pokemon) {
     })
 }
 
-function renderPokemon(pokeData) {
+function createTypes(types, ul){
+    types.forEach(function(e){
+    let typeLi = document.createElement('li')
+    typeLi.innerHTML = firstLetter(e.type.name)
+    typeLi.classList.add('list_deleted')
+    ul.appendChild(typeLi)
+    })
+}
+
+function createHability(hab, ul){
+    hab.forEach(function (a) {
+        let hability = document.createElement('li')
+        hability.innerHTML = firstLetter(a.ability.name)
+        ul.appendChild(hability)
+    })
+}
+
+function renderPokemon(pokeData){
     let countHability = pokeData.abilities
     let countTypes = pokeData.types
     let pokeBio = `https://pokeapi.co/api/v2/pokemon-species/${pokeData.id}/`
@@ -63,8 +81,6 @@ function renderPokemon(pokeData) {
     
     let infCards = cards_generator(pokeData) 
     allPokemonContainer.appendChild(infCards);
-
-    cardglobal = infCards
 
     search_pokemons.addEventListener('keyup', () => {
         let text = search_pokemons.value.toLowerCase()
@@ -75,7 +91,7 @@ function renderPokemon(pokeData) {
             infCards.style.display = "none";
         }
     }) 
-    
+
     infCards.addEventListener("click", () => {
         pokeContainerModal.style.display = 'flex';
         htmlScroll.style.overflow= 'hidden';
@@ -84,19 +100,16 @@ function renderPokemon(pokeData) {
         modal_names.innerHTML = firstLetter(pokeData.name)
         poke_xp.innerHTML = `Experience: ${pokeData.base_experience}`
         poke_weight.innerHTML = `Weight: ${pokeData.weight} kg`
-        
-        if (countHability.length && countTypes.length === 2) {
-            poke_types.innerHTML = `Type: ${firstLetter(countTypes[0].type.name)} / ${firstLetter(countTypes[1].type.name)}`
-            poke_hab.innerHTML = `Ability: ${firstLetter(countHability[0].ability.name)} / ${firstLetter(countHability[1].ability.name)}`
-        } else {
-            poke_types.innerHTML = `Type: ${firstLetter(countTypes[0].type.name)}`
-            poke_hab.innerHTML = `Ability: ${firstLetter(countHability[0].ability.name)}` 
-        }
-        
-        button_select.addEventListener('click', () => {
-            localStorage.setItem('choosen', pokeData.name)
-            localStorage.setItem('img', JSON.stringify(pokeImg))
-        })
+
+        createTypes(countTypes, poke_types);
+        createHability(countHability, poke_hab);
+
+        button_select.addEventListener("click", () => {
+            arr.push({nombre: pokeData.name, img: `https://pokeres.astionbot.org/images/pokemon/${pokeData.id}.png`},)
+            console.log(arr);
+            localStorage.setItem('pokemon', JSON.stringify(arr))
+        });
+
 
         fetch(pokeBio)
         .then(res => isResOk(res))
@@ -116,12 +129,16 @@ function renderPokemon(pokeData) {
 pokeClose.addEventListener("click", () => {
     pokeContainerModal.style.display = 'none';
     htmlScroll.style.overflow= 'auto';
+    poke_types.innerHTML = ""
+    poke_hab.innerHTML = ""
 })
 
 window.addEventListener('click', (e) => {
     if(e.target == pokeContainerModal){
         pokeContainerModal.style.display = 'none';
         htmlScroll.style.overflow= 'auto';
+        poke_types.innerHTML = ""
+        poke_hab.innerHTML = ""
     }
 })
 
