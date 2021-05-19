@@ -247,7 +247,7 @@ main{
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    margin: 10% auto; 
+    margin: 222px auto 0; 
 }
   @keyframes girar {
     from {
