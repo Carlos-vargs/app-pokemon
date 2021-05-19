@@ -111,9 +111,9 @@ go_back.addEventListener("click", () => {
 })
 
 
+let pokeball = JSON.parse (localStorage.getItem("pokemon") )
+console.log(pokeball);
 
-let imgp = JSON.parse(localStorage.getItem('img'))
-pokeball1.src = imgp
-text_pokeball.innerHTML = localStorage.getItem('choosen')
-pokeball2.src = JSON.parse(localStorage.getItem('img2'))
+// pokeball1.src = pokeball.
+// pokeball2.src = 
 
