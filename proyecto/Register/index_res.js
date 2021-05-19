@@ -1,14 +1,16 @@
+//redirects
+const redirectPage = "http:/proyecto/Cards/index_cards.html"
+const reverse = document.getElementById('account-redirect')
 // get the form values
 const value_form = document.getElementById('form')
 const value_name = document.getElementById('name')
 const value_email = document.getElementById('email')
 const value_password = document.getElementById('password')
 const paragraph = document.getElementById('warnings')
-let redirectPage = "http:/proyecto/Cards/index_cards.html"
 // login user 
 const login_redirect = document.getElementById('login-redirect')
 const login_img = document.getElementById ('change_pokemon')
-const reverse = document.getElementById('account-redirect')
+//animation forms
 const traslate_form = document.getElementById('traslate-create_acount')
 const traslate_login = document.getElementById('traslate-login')
 //information of the login user 
