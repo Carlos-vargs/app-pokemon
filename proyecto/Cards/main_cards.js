@@ -35,10 +35,8 @@ const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const button_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload') 
 const arr = []
-//btn select
-const btn_select = document.createElement('button')
-btn_select.classList.add("button_select-pokemon")
-btn_choose.appendChild(btn_select)
+let bttn = document.getElementsByClassName('button_select-pokemon')
+
 
 function fetchDataPokemon(){
     fetch(URL)
@@ -106,8 +104,14 @@ function renderPokemon(pokeData){
             infCards.style.display = "none";
         }
     }) 
+    
+    infCards.addEventListener('click', () => {
+        
+        //btn select
+        let btn_select = document.createElement('button')
+        btn_select.classList.add("button_select-pokemon")
+        btn_choose.appendChild(btn_select)
 
-    infCards.addEventListener("click", () => {
         pokeContainerModal.style.display = 'flex';
         htmlScroll.style.overflow= 'hidden';
         poke_Img.src = pokeImg
@@ -116,23 +120,20 @@ function renderPokemon(pokeData){
         poke_xp.innerHTML = `Experience: ${pokeData.base_experience}`
         poke_weight.innerHTML = `Weight: ${pokeData.weight} kg`
         btn_select.innerHTML = `Choose ${pokeData.name}`
-
-
-        createTypes(countTypes, poke_types);
-        createHability(countHability, poke_hab);
+        createTypes(countTypes, poke_types)
+        createHability(countHability, poke_hab)
         poke_species(pokeData.species)
 
-        btn_select.addEventListener("click", () => {
-
-            arr.push({nombre: pokeData.name, img: pokeImg},)
-            localStorage.setItem('pokemons', JSON.stringify(arr))
-            console.log(arr);
-            
+        btn_select.addEventListener('click', () => {
+            console.log({nombre: pokeData.name, img: pokeImg});
+            /*
             if (arr.length === 5) {
-                arr[4].nombre = pokeData.name 
-                arr[4].img = pokeImg
-                arr.pop()
-            }
+                    localStorage.setItem('pokemons', JSON.stringify(arr))
+                    arr[4].nombre = pokeData.name 
+                    arr[4].img = pokeImg
+                    arr.pop()
+                }
+                */
         })
     })
 }
@@ -142,6 +143,8 @@ pokeClose.addEventListener("click", () => {
     htmlScroll.style.overflow= 'auto';
     poke_types.innerHTML = ""
     poke_hab.innerHTML = ""
+    console.log(bttn);
+
 })
 
 window.addEventListener('click', (e) => {
@@ -150,6 +153,7 @@ window.addEventListener('click', (e) => {
         htmlScroll.style.overflow= 'auto';
         poke_types.innerHTML = ""
         poke_hab.innerHTML = ""
+        console.log(bttn);
     }
 })
 

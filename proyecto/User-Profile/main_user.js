@@ -16,9 +16,7 @@ const birthday_user = document.getElementById('birthday_user');
 const button1 = document.getElementById('button-hidden');
 const button2 = document.getElementById('btn-hidden');
 //select your pokemon
-const pokeball1 = document.getElementById('pokeball1');
-const pokeball2 = document.getElementById('pokeball2');
-let text_pokeball = document.getElementById('text_pokeball');
+const allcontainer_pokeball = document.getElementById('container_pokeball_selected');
 
 //function IIFE
 (() => {
@@ -28,13 +26,16 @@ let text_pokeball = document.getElementById('text_pokeball');
     } else {
         preview_img.src = picture
     };
-
+    //user information
     let getNameUser = JSON.parse ( localStorage.getItem('user-name') )
     let getNickName =  JSON.parse( localStorage.getItem('user-nick') ) 
     let getDataEmail = JSON.parse( localStorage.getItem('user-gmail') )
     let getBirthday = JSON.parse ( localStorage.getItem('user-birthday') )
     let getGender = JSON.parse ( localStorage.getItem('user-checked--m') )
     let getGender_1 = JSON.parse ( localStorage.getItem('user-checked--f') )
+    //pokemons
+    let getPokemons = JSON.parse( localStorage.getItem('pokemons') )
+    // console.log(getPokemons);
 
     if (getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
@@ -54,6 +55,15 @@ let text_pokeball = document.getElementById('text_pokeball');
         genderF.style.display = 'none'
     }
 
+    for (let p = 0; p < getPokemons.length; p++) {
+        let poke_img = document.createElement('img')
+        poke_img.src =getPokemons[p].img
+        poke_img.classList.add('pokeball')
+
+        allcontainer_pokeball.appendChild(poke_img)
+        
+
+    }
 })()
 
 get_input.addEventListener("change", () => {
@@ -109,11 +119,4 @@ go_back.addEventListener("click", () => {
     let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
     location.href = goBack    
 })
-
-
-let pokeball = JSON.parse (localStorage.getItem("pokemon") )
-console.log(pokeball);
-
-// pokeball1.src = pokeball.
-// pokeball2.src = 
 

@@ -218,19 +218,32 @@ main{
 
 .button_select-pokemon{
     font-weight: 600;
-    width: 30%;
     border: none;
     background-color: red;
-    border-radius: 16px;
+    border-radius: 50px;
     margin: 2% auto;
     color: wheat;
-    padding: 2%;
+    padding: 10px;
+}
+
+.arrow{  
+    display: flex;
+    border-top: 5px solid black;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+} 
+
+.hability-content{
+    display: flex;
+    align-items: center;
 }
 
 .list_deleted {
-    margin-left: 5%;
-    /* margin-right: 10px; */
-    /* list-style: none; */
+    list-style: none;
 }
 
 
