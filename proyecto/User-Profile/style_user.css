@@ -4,10 +4,16 @@
     margin: 0;
 }
 
+:root {
+    --color_input: #DADFFD;
+}
+
 html{
     font-size: 62.5%;
     background-color: #F1F1F1;
     font-family: 'Lato', sans-serif;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); */
 }
 
 
@@ -70,7 +76,7 @@ main{
 
 .user_profile{
     width: 100%;
-    background-color: #DADFFD;
+    background-color: white;
     background-size: cover;
 }
 
@@ -137,7 +143,7 @@ main{
     width: 90%;
     height: 45px;
     border-radius: 7px;
-    background-color: #D0D9F2;
+    background-color: white;
     margin: 0 auto;
     margin-bottom: 5%;
     padding-left: 5%;
@@ -155,7 +161,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #D0D9F2;
+    background-color: white;
     max-width: 300px;
     min-width: 100px;
     width: 35%;
@@ -178,29 +184,44 @@ main{
     padding: 2%;
 }
 
-.button-back{
+.btn-grad {background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%)}
+.btn-grad {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
     margin: 30px auto;
-    color: #0B2543;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    width: 95px;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
     border-radius: 20px;
     border: none;
-    width: 95px;
     outline: none;
-}
+    font-weight: 600;
+ }
 
-.button-back:hover,
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+
+/* .button-back:hover,
 .button-back:focus{
     color: white;
-    background-color:#D9072D;
+    background-color:#660a1b;
     transition: all 1s ease;
-}
+} */
 
 .container-pokeball{
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     margin-top: 50px;
@@ -209,13 +230,23 @@ main{
 
 
 .pokeball{
-    width: 100px;
-    height: 100px;
+    max-width: 300px;
+    min-width: 100px;
+    width: 10%;
 }
 
 .pokeballs{
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.title-pokemons_select{
+    max-height: 300px;
+    min-width: 200px;
+    width: 20%;
+    margin: 3% auto;
 }
 
 

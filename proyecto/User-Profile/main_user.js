@@ -17,6 +17,7 @@ const button1 = document.getElementById('button-hidden');
 const button2 = document.getElementById('btn-hidden');
 //select your pokemon
 const allcontainer_pokeball = document.getElementById('container_pokeball_selected');
+const redirect_cards = document.getElementById('redirect_cards');
 
 //function IIFE
 (() => {
@@ -34,7 +35,7 @@ const allcontainer_pokeball = document.getElementById('container_pokeball_select
     let getGender = JSON.parse ( localStorage.getItem('user-checked--m') )
     let getGender_1 = JSON.parse ( localStorage.getItem('user-checked--f') )
     //pokemons
-    let getPokemons = JSON.parse( localStorage.getItem('pokemons') )
+    let getPokemons = JSON.parse( localStorage.getItem('poke_inf') )
     // console.log(getPokemons);
 
     if (getNickName,getDataEmail  === null) {
@@ -54,16 +55,15 @@ const allcontainer_pokeball = document.getElementById('container_pokeball_select
         button1.style.display = 'none'
         genderF.style.display = 'none'
     }
-
     for (let p = 0; p < getPokemons.length; p++) {
         let poke_img = document.createElement('img')
-        poke_img.src =getPokemons[p].img
+        poke_img.src =getPokemons[p]
         poke_img.classList.add('pokeball')
-
-        allcontainer_pokeball.appendChild(poke_img)
         
-
+        allcontainer_pokeball.appendChild(poke_img)
     }
+    /* 
+    */   
 })()
 
 get_input.addEventListener("change", () => {
@@ -120,3 +120,7 @@ go_back.addEventListener("click", () => {
     location.href = goBack    
 })
 
+redirect_cards.addEventListener("click", () => {
+    let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
+    location.href = goBack    
+})
