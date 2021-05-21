@@ -32,10 +32,10 @@ const user_name = document.getElementById('user-name--cards')
 const img_user = document.getElementById('profile-img--cards')
 const getName = JSON.parse( localStorage.getItem('user-nick') )
 const getPic = JSON.parse( localStorage.getItem('UserImg') )
-const button_select = document.getElementById('select-pokemon')
+const btn_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload') 
-const arr = []
-let bttn = document.getElementsByClassName('button_select-pokemon')
+const poke_arr = [] 
+const poke_unicos = []
 
 
 function fetchDataPokemon(){
@@ -87,6 +87,23 @@ function poke_species(spc) {
     })
 }
 
+function removeDuplicates (arr) {
+        
+    const poke = []
+    arr.forEach( (elemento) => {
+      if (!poke.includes(elemento)) {
+        poke.push(elemento)
+    }
+    if (poke.length >= 6 ) {
+        poke[4] = elemento
+        poke.pop()
+    }
+    })
+
+    localStorage.setItem('poke_inf', JSON.stringify(poke))
+    return poke;
+}
+
 function renderPokemon(pokeData){
     let countHability = pokeData.abilities
     let countTypes = pokeData.types
@@ -106,14 +123,8 @@ function renderPokemon(pokeData){
     }) 
     
     infCards.addEventListener('click', () => {
-        
-        //btn select
-        let btn_select = document.createElement('button')
-        btn_select.classList.add("button_select-pokemon")
-        btn_choose.appendChild(btn_select)
-
-        pokeContainerModal.style.display = 'flex';
-        htmlScroll.style.overflow= 'hidden';
+        pokeContainerModal.style.display = 'flex'
+        htmlScroll.style.overflow= 'hidden'
         poke_Img.src = pokeImg
         poke_Img.alt = pokeData.name 
         modal_names.innerHTML = firstLetter(pokeData.name)
@@ -123,19 +134,12 @@ function renderPokemon(pokeData){
         createTypes(countTypes, poke_types)
         createHability(countHability, poke_hab)
         poke_species(pokeData.species)
-
-        btn_select.addEventListener('click', () => {
-            console.log({nombre: pokeData.name, img: pokeImg});
-            /*
-            if (arr.length === 5) {
-                    localStorage.setItem('pokemons', JSON.stringify(arr))
-                    arr[4].nombre = pokeData.name 
-                    arr[4].img = pokeImg
-                    arr.pop()
-                }
-                */
-        })
-    })
+        
+        btn_select.addEventListener("click", () => {
+            poke_arr.push(pokeImg)    
+            removeDuplicates(poke_arr)
+        })            
+    }) 
 }
 
 pokeClose.addEventListener("click", () => {
@@ -143,17 +147,15 @@ pokeClose.addEventListener("click", () => {
     htmlScroll.style.overflow= 'auto';
     poke_types.innerHTML = ""
     poke_hab.innerHTML = ""
-    console.log(bttn);
 
 })
 
-window.addEventListener('click', (e) => {
+window.addEventListener("click", e => {
     if(e.target == pokeContainerModal){
         pokeContainerModal.style.display = 'none';
         htmlScroll.style.overflow= 'auto';
         poke_types.innerHTML = ""
         poke_hab.innerHTML = ""
-        console.log(bttn);
     }
 })
 
@@ -162,9 +164,6 @@ user_profile.addEventListener("click", () => {
     location.href = redirectionProfile
 })
 
-
-user_name.innerHTML = getName
-
 if ( getPic === null) {
     img_user.src = "../icons/Pokemon_Trainer_Boy.png"
 }
@@ -172,9 +171,10 @@ if (img_user.src === "" ) {
     img_user.src = getPic
 }
 
+user_name.innerHTML = getName
+
 let preload = document.createElement('div')
 preload.classList.add('preloader')
-
 preload_cards.appendChild(preload)
 
 fetchDataPokemon()
