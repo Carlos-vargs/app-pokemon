@@ -1,3 +1,4 @@
+//Generate cards
 const cards_generator = obj => {
     const POKECARD = document.createElement('div')
     POKECARD.classList.add('container-cards--info')   
