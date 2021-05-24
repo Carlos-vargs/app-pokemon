@@ -184,7 +184,6 @@ main{
     padding: 2%;
 }
 
-.btn-grad {background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%)}
 .btn-grad {
     display: flex;
     align-items: center;
@@ -192,7 +191,6 @@ main{
     margin: 30px auto;
     padding: 10px;
     text-align: center;
-    text-transform: uppercase;
     transition: 0.5s;
     width: 95px;
     background-size: 200% auto;
@@ -202,10 +200,11 @@ main{
     border: none;
     outline: none;
     font-weight: 600;
- }
+    background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%);
+}
 
- .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
+.btn-grad:hover {
+    background-position: right center;
    color: #fff;
    text-decoration: none;
  }
@@ -233,6 +232,7 @@ main{
     max-width: 300px;
     min-width: 100px;
     width: 10%;
+    /* margin-right: 20px; */
 }
 
 .pokeballs{

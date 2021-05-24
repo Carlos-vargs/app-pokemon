@@ -6,7 +6,7 @@ const isResOk = (res) => {
       return res.json()
 };
 
-//search pokemons with input 
+//search pokemons with input
 const search_pokemons = document.getElementById('search-pokemons')
 const allPokemonContainer = document.getElementById('cards-content')
 const pokemonNotFound = document.getElementById('notFound')
@@ -18,7 +18,7 @@ const poke_Img = document.getElementById('pokeImgs')
 const modal_names = document.getElementById('pokemon-name')
 const poke_Damage = document.getElementById('pokeDamage')
 const poke_xp = document.getElementById('pokeXp')
-const poke_hab = document.getElementById('pokeHability')
+const poke_hab = document.getElementById('pokeAbility')
 const btn_choose = document.getElementById('color-target')
 const poke_weight = document.getElementById('poke-weight')
 const poke_color = document.getElementById('poke-color')
@@ -27,25 +27,33 @@ const poke_description = document.getElementById('pokeDescription')
 const poke_bio = document.getElementById('pokeBio')
 const htmlScroll = document.getElementsByTagName('html')[0];
 const user_profile = document.getElementById('user_profile')
+const btn_ty = document.getElementsByClassName('btn_type')
+const mtm_evolution = document.getElementById('mtm_evolution')
+const poke_skill = document.getElementById('poke_skill')
+const pokeAb = document.getElementsByClassName('list_deleted')
 // user profile
 const user_name = document.getElementById('user-name--cards')
 const img_user = document.getElementById('profile-img--cards')
 const getName = JSON.parse( localStorage.getItem('user-nick') )
 const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const btn_select = document.getElementById('select-pokemon')
-const preload_cards = document.getElementById('preload') 
-const poke_arr = [] 
+const preload_cards = document.getElementById('preload')
+const poke_arr = []
 const poke_unicos = []
-
+let btn_type2;
+//img evolution
+const img1 = document.getElementById('mtn1')
+const img2 = document.getElementById('mtn2')
+const img3 = document.getElementById('mtn3')
 
 function fetchDataPokemon(){
     fetch(URL)
     .then(res => isResOk(res))
-    .then(function (data) {
+    .then( data => {
         data.results.forEach(function (pokemon){
             pokemonInformation(pokemon);
         });
-        
+
     })
 }
 
@@ -53,22 +61,23 @@ function pokemonInformation(pokemon){
     let URL_INF = pokemon.url
     fetch(URL_INF)
     .then(res => res.json())
-    .then(function (pokeData) {
+    .then( pokeData => {
         renderPokemon(pokeData);
     })
 }
 
 function createTypes(types, parent){
-    types.forEach(function(e){
-    let typeLi = document.createElement('p')
-    typeLi.innerHTML = firstLetter(e.type.name)
-    typeLi.classList.add('list_deleted')
-    parent.appendChild(typeLi)
+    types.forEach( e => {
+    let btn_type = document.createElement('button')
+    btn_type.innerHTML = firstLetter(e.type.name)
+    btn_type.classList.add('btn_type')
+    parent.appendChild(btn_type)
+    btn_type2 = btn_type
     })
 }
 
-function createHability(hab, parent){
-    hab.forEach(function (a) {
+function createAbility(hab, parent){
+    hab.forEach( a => {
         let hability = document.createElement('p')
         hability.innerHTML = firstLetter(a.ability.name)
         hability.classList.add('list_deleted')
@@ -80,15 +89,66 @@ function poke_species(spc) {
     let spc_inf = spc.url
     fetch(spc_inf)
     .then(res => res.json())
-    .then(function (b) {
+    .then( b => {
+        //Versiones
         let bio_ifn = b.flavor_text_entries[1].flavor_text
-        poke_bio.innerHTML = `Description: ${firstLetter(bio_ifn.toLowerCase())}`
-        /*b.color.name*/
+        poke_bio.innerHTML = firstLetter(bio_ifn.toLowerCase())
+
+        poke_evolution(b.evolution_chain)
     })
 }
 
+function poke_evolution(ev) {
+    let infEvolution = ev.url
+    fetch(infEvolution)
+    .then(res => res.json())
+    .then( v => {
+      //  getEvolution(v.chain.species, /*.chain.evolves_to[0].species, v.chain.evolves_to[0].evolves_to[0].species*/);
+      getEvolution(v.chain.evolves_to[0].evolves_to[0])
+        /*
+        console.log(v.chain.species); el primero de la evolucion 
+        console.log(v.chain.evolves_to[0].species); segundo de la evolucion 
+        console.log(v.chain.evolves_to[0].evolves_to[0].species); tercero de la evolucion 
+        */
+    })
+}
+
+function getEvolution (v1, v2, v3) {
+    v1.forEach ( x => {
+        console.log(x.species.name);
+    } )
+    let evolution1 = v1.url
+    // let evolution2 = v2.url
+    // let evolution3 = v3.url
+    /*
+    fetch(evolution1)
+    .then(res => res.json())
+    .then( evo => {
+        img1.src = `https://pokeres.bastionbot.org/images/pokemon/${evo.id}.png`
+        img1.title = evo.name
+        mtm_evolution.appendChild(img1)
+    })
+    fetch(evolution2)
+    .then(res => res.json())
+    .then( evo => {
+        img2.src = `https://pokeres.bastionbot.org/images/pokemon/${evo.id}.png`
+        img2.title = evo.name
+        mtm_evolution.appendChild(img2)
+    })
+    fetch(evolution3)
+    .then(res => res.json())
+    .then( evo => {
+        img3.src = `https://pokeres.bastionbot.org/images/pokemon/${evo.id}.png`
+        img3.title = evo.name
+        mtm_evolution.appendChild(img3)
+    })
+    */
+}
+
+
+
 function removeDuplicates (arr) {
-        
+
     const poke = []
     arr.forEach( (elemento) => {
       if (!poke.includes(elemento)) {
@@ -105,11 +165,11 @@ function removeDuplicates (arr) {
 }
 
 function renderPokemon(pokeData){
-    let countHability = pokeData.abilities
+    let countAbility = pokeData.abilities
     let countTypes = pokeData.types
     let pokeImg = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`
 
-    let infCards = cards_generator(pokeData) 
+    let infCards = cards_generator(pokeData)
     allPokemonContainer.appendChild(infCards);
 
     search_pokemons.addEventListener('keyup', () => {
@@ -120,26 +180,33 @@ function renderPokemon(pokeData){
         } else {
             infCards.style.display = "none";
         }
-    }) 
-    
+    })
+
     infCards.addEventListener('click', () => {
         pokeContainerModal.style.display = 'flex'
         htmlScroll.style.overflow= 'hidden'
         poke_Img.src = pokeImg
-        poke_Img.alt = pokeData.name 
+        poke_Img.alt = pokeData.name
         modal_names.innerHTML = firstLetter(pokeData.name)
-        poke_xp.innerHTML = `Experience: ${pokeData.base_experience}`
+        poke_xp.innerHTML = `Experience: ${pokeData.base_experience} xp`
         poke_weight.innerHTML = `Weight: ${pokeData.weight} kg`
         btn_select.innerHTML = `Choose ${pokeData.name}`
         createTypes(countTypes, poke_types)
-        createHability(countHability, poke_hab)
+        createAbility(countAbility, poke_hab)
         poke_species(pokeData.species)
-        
+
+        if (pokeAb.length ===  1) {
+            poke_skill.innerHTML = "Skill"
+        } else {
+            poke_skill.innerHTML = "Skills"
+        }
+
+
         btn_select.addEventListener("click", () => {
-            poke_arr.push(pokeImg)    
+            poke_arr.push(pokeImg)
             removeDuplicates(poke_arr)
-        })            
-    }) 
+        })
+    })
 }
 
 pokeClose.addEventListener("click", () => {
@@ -183,3 +250,10 @@ setTimeout(() => {
     preload_cards.style.display = "none"
     allPokemonContainer.style.display = "flex"
 }, 2000);
+
+
+/*fetch(`https://pokeapi.co/api/v2/evolution-chain/${pokeData.id}/`)
+        .then(res => res.json())
+        .then( spce => {
+            console.log(spce.chain.species.name);
+        }) */

@@ -176,11 +176,12 @@ main{
     position: relative;
     max-width: 400px;
     min-width: 100px;
-    width: 70%;
+    width: 90%;
     padding: 20px;
     margin: auto;
     border-radius: 20px;
-    background-color: white;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 
 .pokeModalup {
@@ -210,20 +211,40 @@ main{
     font-weight: bold;
 }
 .modal--card-text{
-    /* display: flex; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
     font-size: 1.4rem;
     font-weight: 500;
     padding: 4px;
 }
 
-.button_select-pokemon{
-    font-weight: 600;
-    border: none;
-    background-color: red;
-    border-radius: 50px;
+.text_bold {
+    font-weight: bold;
+}
+
+.btn-grad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 2% auto;
-    color: wheat;
     padding: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: wheat;            
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%);
+}
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    box-shadow: 0 0 20px #eee;
+    text-decoration: none;
 }
 
 .arrow{  
@@ -242,21 +263,42 @@ main{
     align-items: center;
 }
 
-.list_deleted {
-    list-style: none;
+.btn_type {
+    font-weight: bold;
+    width: 90px;
+    padding: 4px;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    background-color: rgb(255, 200, 55);
+    margin: 0 5px;
 }
 
+.container_mtm{
+    display: flex;
+    /* flex-direction: column; */
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
 
-/* .pokemon--not-found{
-    display: none;
-    position: absolute;
-    top: 40%;
-    margin: 0 auto;
-    font-size: 4rem;
-    text-align: center;
+.mtm_evolution {
+    margin: 4px auto;
     font-weight: bold;
-    color: gray;
-} */
+    font-size: 1.4rem;
+}
+
+.mtm {
+    width: 90px;
+    margin: 0 2%;
+    filter: brightness(0);
+}
+
+.mtm:hover {
+    transition: 0.5s;
+    filter: none;
+
+}
 
 .preloader {
     width: 70px;
@@ -320,4 +362,10 @@ main{
     .img-target {
         margin: 20px auto 50px;
     }   
+}
+
+@media (max-width: 630px) {
+    .modal-content{
+        width: 55%;
+    }
 }

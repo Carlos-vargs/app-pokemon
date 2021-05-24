@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style_cards.css">
+    <link rel="icon" type="image/png" href="../icons/pokeball.png"/>
     <title>Cards Section</title>
 </head>
 <body>
@@ -27,24 +28,32 @@
         <div class="preload-container" id="preload"></div>
         <section  class="Poke-container" id="cards-content">
             <div class="pokeModalup" id="pokeBlock">
+                <!-- container inf -->
                 <div class="modal-content" id="color-target">
                     <p  class="pokeModalText" id="pokemon-name"></p>
                     <img class="img-target_MODAL" id="pokeImgs">
-                    <p  class="modal--card-text" id="pokeXp"></p>
-                    <p class="modal--card-text" id="poke-weight"></p>
-                    <p class="modal--card-text" id="poke-color"></p>
-                    <div class="modal--card-text" id="pokeHability">
-                        <!-- <div class="hability-content">
-                            <p>Hability</p>
-                            <span class="arrow"></span>
-                        </div> -->
-                    </div>
                     <div class="modal--card-text" id="pokeTypes"></div>
+                    <div class="modal--card-text">
+                        <p  class="modal--card-text" id="pokeXp"></p>
+                        <p class="modal--card-text" id="poke-weight"></p>
+                    </div>
+                    <p class="modal--card-text text_bold" id="poke_skill"></p>
+                    <div class="modal--card-text" id="pokeAbility"></div>
+                    <p class="modal--card-text text_bold">Versions</p>
                     <p class="modal--card-text" id="pokeBio"></p>
                         <div class="container-Close">
                             <span class="close" id="closeSpan">x</span>
                         </div>
-                    <button class="button_select-pokemon" id="select-pokemon"></button>
+                        <p class="mtm_evolution">Evolutions</p>
+                    <div class="container_mtm" id="mtm_evolution">
+                        <img id="mtn1" class="mtm">
+                        <img id="mtn2" class="mtm">
+                        <img id="mtn3" class="mtm">
+                        <!--  
+                        <img src="../icons/pokemons-portada(3).png" class="">
+                        <img src="../icons/pokemons-portada(3).png" class="mtm"> -->
+                    </div>
+                    <button class="btn-grad" id="select-pokemon"></button>
                 </div>
             </div>
             <!-- <h1 id="notFound" class="pokemon--not-found">Not Found...</h1> -->

@@ -55,15 +55,14 @@ const redirect_cards = document.getElementById('redirect_cards');
         button1.style.display = 'none'
         genderF.style.display = 'none'
     }
+/*
     for (let p = 0; p < getPokemons.length; p++) {
         let poke_img = document.createElement('img')
         poke_img.src =getPokemons[p]
         poke_img.classList.add('pokeball')
-        
         allcontainer_pokeball.appendChild(poke_img)
     }
-    /* 
-    */   
+*/
 })()
 
 get_input.addEventListener("change", () => {
