@@ -23,7 +23,7 @@ const redirect_cards = document.getElementById('redirect_cards');
 (() => {
     let picture = JSON.parse(localStorage.getItem('UserImg'))
     if (picture === null) {
-        preview_img.src = "../icons/Pokemon_Trainer_Boy.png"
+        preview_img.src = "../assets/img/Pokemon_Trainer_Boy.png"
     } else {
         preview_img.src = picture
     };
