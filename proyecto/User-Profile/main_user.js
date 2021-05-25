@@ -115,11 +115,11 @@ form_values.addEventListener("submit", () => {
 })
 
 go_back.addEventListener("click", () => {
-    let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
+    let goBack = "http:/proyecto/Cards/index_cards.html"
     location.href = goBack    
 })
 
 redirect_cards.addEventListener("click", () => {
-    let goBack = "http://127.0.0.1:5500/proyecto/Cards/index_cards.html"
+    let goBack = "http:/proyecto/Cards/index_cards.html"
     location.href = goBack    
 })
