@@ -39,12 +39,9 @@ const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const btn_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload')
 const poke_arr = []
-const poke_unicos = []
 let btn_type2;
 //img evolution
-const img1 = document.getElementById('mtn1')
-const img2 = document.getElementById('mtn2')
-const img3 = document.getElementById('mtn3')
+const getClassImg = document.getElementsByClassName("mtm")
 
 function fetchDataPokemon(){
     fetch(URL)
@@ -103,49 +100,15 @@ function poke_evolution(ev) {
     fetch(infEvolution)
     .then(res => res.json())
     .then( v => {
-      //  getEvolution(v.chain.species, /*.chain.evolves_to[0].species, v.chain.evolves_to[0].evolves_to[0].species*/);
-      getEvolution(v.chain.evolves_to[0].evolves_to[0])
-        /*
-        console.log(v.chain.species); el primero de la evolucion 
-        console.log(v.chain.evolves_to[0].species); segundo de la evolucion 
-        console.log(v.chain.evolves_to[0].evolves_to[0].species); tercero de la evolucion 
-        */
+      getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url)
     })
 }
 
 function getEvolution (v1, v2, v3) {
-    v1.forEach ( x => {
-        console.log(x.species.name);
-    } )
-    let evolution1 = v1.url
-    // let evolution2 = v2.url
-    // let evolution3 = v3.url
-    /*
-    fetch(evolution1)
-    .then(res => res.json())
-    .then( evo => {
-        img1.src = `https://pokeres.bastionbot.org/images/pokemon/${evo.id}.png`
-        img1.title = evo.name
-        mtm_evolution.appendChild(img1)
-    })
-    fetch(evolution2)
-    .then(res => res.json())
-    .then( evo => {
-        img2.src = `https://pokeres.bastionbot.org/images/pokemon/${evo.id}.png`
-        img2.title = evo.name
-        mtm_evolution.appendChild(img2)
-    })
-    fetch(evolution3)
-    .then(res => res.json())
-    .then( evo => {
-        img3.src = `https://pokeres.bastionbot.org/images/pokemon/${evo.id}.png`
-        img3.title = evo.name
-        mtm_evolution.appendChild(img3)
-    })
-    */
+    fetchDataEvolution(v3)
+    v1.forEach ( x => fetchDataEvolution(x.species.url))
+    v2.forEach ( x => fetchDataEvolution(x.species.url))
 }
-
-
 
 function removeDuplicates (arr) {
 
@@ -201,7 +164,6 @@ function renderPokemon(pokeData){
             poke_skill.innerHTML = "Skills"
         }
 
-
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeImg)
             removeDuplicates(poke_arr)
@@ -214,6 +176,9 @@ pokeClose.addEventListener("click", () => {
     htmlScroll.style.overflow= 'auto';
     poke_types.innerHTML = ""
     poke_hab.innerHTML = ""
+    for (var i = getClassImg.length - 1; i >= 0; --i) {
+        getClassImg[i].remove();
+    }
 
 })
 
@@ -222,7 +187,10 @@ window.addEventListener("click", e => {
         pokeContainerModal.style.display = 'none';
         htmlScroll.style.overflow= 'auto';
         poke_types.innerHTML = ""
-        poke_hab.innerHTML = ""
+        poke_hab.innerHTML = ""        
+        for (var i = getClassImg.length - 1; i >= 0; --i) {
+            getClassImg[i].remove();
+        }
     }
 })
 
@@ -250,10 +218,3 @@ setTimeout(() => {
     preload_cards.style.display = "none"
     allPokemonContainer.style.display = "flex"
 }, 2000);
-
-
-/*fetch(`https://pokeapi.co/api/v2/evolution-chain/${pokeData.id}/`)
-        .then(res => res.json())
-        .then( spce => {
-            console.log(spce.chain.species.name);
-        }) */

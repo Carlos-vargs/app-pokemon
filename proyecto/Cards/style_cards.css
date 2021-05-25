@@ -276,7 +276,7 @@ main{
 
 .container_mtm{
     display: flex;
-    /* flex-direction: column; */
+    /* flex-direction:row-kk; */
     overflow: hidden;
     justify-content: center;
     align-items: center;
@@ -291,7 +291,7 @@ main{
 .mtm {
     width: 90px;
     margin: 0 2%;
-    filter: brightness(0);
+    /* filter: brightness(0); */
 }
 
 .mtm:hover {
