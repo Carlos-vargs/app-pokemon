@@ -7,7 +7,12 @@ html{
     font-size: 62.5%;
     background-color: #F1F1F1;
     font-family: 'Nunito', sans-serif;
+    
 }
+html::-webkit-scrollbar {
+    width: 0px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -97,6 +102,7 @@ main{
     display: none;
     justify-content: center;
     flex-wrap: wrap;
+    /* gap: 10px; */
 }
 
 .preload-container {
@@ -276,10 +282,14 @@ main{
 
 .container_mtm{
     display: flex;
-    /* flex-direction:row-kk; */
-    overflow: hidden;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    scroll-snap-type: x proximity;
+}
+
+.container_mtm::-webkit-scrollbar {
+    -webkit-appearance: none;
 }
 
 .mtm_evolution {

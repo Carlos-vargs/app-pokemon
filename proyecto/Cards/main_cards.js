@@ -9,7 +9,8 @@ const isResOk = (res) => {
 //search pokemons with input
 const search_pokemons = document.getElementById('search-pokemons')
 const allPokemonContainer = document.getElementById('cards-content')
-const pokemonNotFound = document.getElementById('notFound')
+const redirectionLogin = document.getElementById('redirect_login')
+
 //modal
 const pokeContainerModal = document.getElementById('pokeBlock')
 const pokeClose = document.getElementById('closeSpan')
@@ -125,6 +126,12 @@ function removeDuplicates (arr) {
     return poke;
 }
 
+function removeElements(obj) {
+    for (var i = obj.length - 1; i >= 0; --i) {
+        obj[i].remove();
+    }
+}
+
 function renderPokemon(pokeData){
     let countAbility = pokeData.abilities
     let countTypes = pokeData.types
@@ -175,10 +182,7 @@ pokeClose.addEventListener("click", () => {
     htmlScroll.style.overflow= 'auto';
     poke_types.innerHTML = ""
     poke_hab.innerHTML = ""
-    for (var i = getClassImg.length - 1; i >= 0; --i) {
-        getClassImg[i].remove();
-    }
-
+    removeElements(getClassImg)
 })
 
 window.addEventListener("click", e => {
@@ -187,15 +191,15 @@ window.addEventListener("click", e => {
         htmlScroll.style.overflow= 'auto';
         poke_types.innerHTML = ""
         poke_hab.innerHTML = ""        
-        for (var i = getClassImg.length - 1; i >= 0; --i) {
-            getClassImg[i].remove();
-        }
+        removeElements(getClassImg)
     }
 })
 
 user_profile.addEventListener("click", () => {
-    let redirectionProfile = "http:/proyecto/User-Profile/index_user.html"
-    location.href = redirectionProfile
+    location.href = "http:/proyecto/User-Profile/index_user.html"
+})
+redirectionLogin.addEventListener ("click", () => {
+    location.href = "http:/proyecto/Register/index_res.html"
 })
 
 if ( getPic === null) {
@@ -213,7 +217,14 @@ preload_cards.appendChild(preload)
 
 fetchDataPokemon()
 
+/*
+pendiente revisar el HTMLCollection y si es igual a 151 elementos el loader tiene que eliminarse
+document.addEventListener("DOMContentLoaded",  e => {
+    let cards_length = document.getElementsByClassName('container-cards--info')
+})
+*/
+
 setTimeout(() => {
     preload_cards.style.display = "none"
     allPokemonContainer.style.display = "flex"
-}, 2000);
+}, 2100);
