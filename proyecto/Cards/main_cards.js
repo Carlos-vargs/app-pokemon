@@ -39,7 +39,6 @@ const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const btn_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload')
 const poke_arr = []
-let btn_type2;
 //img evolution
 const getClassImg = document.getElementsByClassName("mtm")
 
@@ -65,11 +64,10 @@ function pokemonInformation(pokemon){
 
 function createTypes(types, parent){
     types.forEach( e => {
-    let btn_type = document.createElement('button')
+    let btn_type = document.createElement('p')
     btn_type.innerHTML = firstLetter(e.type.name)
     btn_type.classList.add('btn_type')
     parent.appendChild(btn_type)
-    btn_type2 = btn_type
     })
 }
 
@@ -167,6 +165,7 @@ function renderPokemon(pokeData){
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeImg)
             removeDuplicates(poke_arr)
+            // pendiente agregar el icono de listo para agregar pokemon. 
         })
     })
 }
@@ -200,7 +199,7 @@ user_profile.addEventListener("click", () => {
 })
 
 if ( getPic === null) {
-    img_user.src = "../icons/Pokemon_Trainer_Boy.png"
+    img_user.src = "../assets/img/Pokemon_Trainer_Boy.png"
 }
 if (img_user.src === "" ) {
     img_user.src = getPic
