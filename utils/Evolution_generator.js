@@ -4,6 +4,6 @@ const generate_img = obj => {
     evo_img.src =`https://pokeres.bastionbot.org/images/pokemon/${obj.id}.png`
     evo_img.title = obj.name
     evo_img.classList.add ("mtm")
-
+    
     return evo_img
 }
