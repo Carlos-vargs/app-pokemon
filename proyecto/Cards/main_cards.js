@@ -171,6 +171,7 @@ function renderPokemon(pokeData){
         //seccion experimental 
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeData.id)
+            btn_select.innerHTML = `You have chosen ${pokeData.name}`
             removeDuplicates(poke_arr)
             // pendiente agregar el icono de listo para agregar pokemon. 
         })
