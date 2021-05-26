@@ -181,6 +181,7 @@ pokeClose.addEventListener("click", () => {
     pokeContainerModal.style.display = 'none';
     htmlScroll.style.overflow= 'auto';
     poke_types.innerHTML = ""
+    //
     poke_hab.innerHTML = ""
     removeElements(getClassImg)
 })

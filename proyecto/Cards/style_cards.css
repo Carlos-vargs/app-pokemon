@@ -284,8 +284,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: auto;
-    scroll-snap-type: x proximity;
+    overflow-x: auto;
 }
 
 .container_mtm::-webkit-scrollbar {
