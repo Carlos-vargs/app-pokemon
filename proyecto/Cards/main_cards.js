@@ -123,7 +123,6 @@ function removeDuplicates (arr) {
     })
 
     localStorage.setItem('poke_inf', JSON.stringify(poke))
-    return poke;
 }
 
 function removeElements(obj) {
@@ -169,6 +168,7 @@ function renderPokemon(pokeData){
             poke_skill.innerHTML = "Skills"
         }
 
+        //seccion experimental 
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeData.id)
             removeDuplicates(poke_arr)

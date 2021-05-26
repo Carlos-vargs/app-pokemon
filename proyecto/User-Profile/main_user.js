@@ -64,6 +64,7 @@ const img5 = document.getElementById("poke5");
         genderF.style.display = 'none'
     }
     
+    //seccion experimental 
     for (let p = 0; p < getPokemons.length; p++) {
         let poke_img = document.createElement('img')
         poke_img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
