@@ -170,7 +170,7 @@ function renderPokemon(pokeData){
         }
 
         btn_select.addEventListener("click", () => {
-            poke_arr.push(pokeImg)
+            poke_arr.push(pokeData.id)
             removeDuplicates(poke_arr)
             // pendiente agregar el icono de listo para agregar pokemon. 
         })
@@ -181,7 +181,6 @@ pokeClose.addEventListener("click", () => {
     pokeContainerModal.style.display = 'none';
     htmlScroll.style.overflow= 'auto';
     poke_types.innerHTML = ""
-    //
     poke_hab.innerHTML = ""
     removeElements(getClassImg)
 })
