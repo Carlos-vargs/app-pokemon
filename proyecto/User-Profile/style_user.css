@@ -231,7 +231,7 @@ main{
 
 .pokeball{
     max-width: 300px;
-    min-width: 100px;
+    min-width: 130px;
     width: 10%;
     margin: 0 10px;
     /* border: 1px solid red;
@@ -242,7 +242,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 }
 
 .title-pokemons_select{
