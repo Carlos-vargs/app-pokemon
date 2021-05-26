@@ -19,11 +19,13 @@ const button2 = document.getElementById('btn-hidden');
 const allcontainer_pokeball = document.getElementById('container_pokeball_selected');
 const redirect_cards = document.getElementById('redirect_cards');
 const pokeHover = document.getElementsByClassName("pokeball");
+/*
 const img1 = document.getElementById("poke1");
 const img2 = document.getElementById("poke2");
 const img3 = document.getElementById("poke3");
 const img4 = document.getElementById("poke4");
 const img5 = document.getElementById("poke5");
+*/
 
 //function IIFE
 (() => {
