@@ -18,6 +18,12 @@ const button2 = document.getElementById('btn-hidden');
 //select your pokemon
 const allcontainer_pokeball = document.getElementById('container_pokeball_selected');
 const redirect_cards = document.getElementById('redirect_cards');
+const pokeHover = document.getElementsByClassName("pokeball");
+const img1 = document.getElementById("poke1");
+const img2 = document.getElementById("poke2");
+const img3 = document.getElementById("poke3");
+const img4 = document.getElementById("poke4");
+const img5 = document.getElementById("poke5");
 
 //function IIFE
 (() => {
@@ -55,14 +61,14 @@ const redirect_cards = document.getElementById('redirect_cards');
         button1.style.display = 'none'
         genderF.style.display = 'none'
     }
-/*
+    
     for (let p = 0; p < getPokemons.length; p++) {
         let poke_img = document.createElement('img')
-        poke_img.src =getPokemons[p]
+        poke_img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
+        //"../assets/img/pokeball.png"
         poke_img.classList.add('pokeball')
         allcontainer_pokeball.appendChild(poke_img)
     }
-*/
 })()
 
 get_input.addEventListener("change", () => {
@@ -114,12 +120,6 @@ form_values.addEventListener("submit", () => {
     }
 })
 
-go_back.addEventListener("click", () => {
-    let goBack = "http:/proyecto/Cards/index_cards.html"
-    location.href = goBack    
-})
+go_back.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
+redirect_cards.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 
-redirect_cards.addEventListener("click", () => {
-    let goBack = "http:/proyecto/Cards/index_cards.html"
-    location.href = goBack    
-})

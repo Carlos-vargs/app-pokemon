@@ -225,6 +225,7 @@ main{
     width: 100%;
     margin-top: 50px;
     border: none;
+    position: relative;
 }
 
 
@@ -232,14 +233,16 @@ main{
     max-width: 300px;
     min-width: 100px;
     width: 10%;
-    /* margin-right: 20px; */
+    margin: 0 10px;
+    /* border: 1px solid red;
+    border-radius: 100%; */
 }
 
 .pokeballs{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 }
 
 .title-pokemons_select{
@@ -249,6 +252,14 @@ main{
     margin: 3% auto;
 }
 
+.icon_question{
+    background-image: url("../assets/icons/icons8-question-mark-50.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
 
 @media (max-width: 480px){
     .all-information-container{
