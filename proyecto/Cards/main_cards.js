@@ -168,7 +168,7 @@ function renderPokemon(pokeData){
 
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeData.id)
-            btn_select.innerHTML = `You have chosen ${pokeData.name}`
+            btn_select.innerHTML = `You have chosen ${pokeData.name} <span class="iconCheck"></span>`
             removeDuplicates(poke_arr)
             // pendiente agregar el icono de listo para agregar pokemon. 
         })
@@ -218,4 +218,4 @@ document.addEventListener("DOMContentLoaded",  e => {
 setTimeout(() => {
     preload_cards.style.display = "none"
     allPokemonContainer.style.display = "flex"
-}, 2100);
+}, 2000);
