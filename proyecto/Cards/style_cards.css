@@ -145,6 +145,7 @@ main{
     margin-top: 20px;
     font-weight: 500;
     color: #191970;
+    text-align: center;
 }
 
 /*MODAL*/
@@ -295,15 +296,13 @@ main{
     font-size: 1.4rem;
 }
 
+.ntn{
+    display: none;
+}
+
 .mtm {
     width: 90px;
     margin: 0 auto;
-}
-
-.mtm:hover {
-    transition: 0.5s;
-    filter: none;
-
 }
 
 .preloader {

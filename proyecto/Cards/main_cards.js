@@ -40,6 +40,7 @@ const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const btn_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload')
 const poke_arr = []
+const notEvolution = document.getElementById('notEv')
 
 //img evolution
 const getClassImg = document.getElementsByClassName("mtm")
@@ -99,7 +100,10 @@ function poke_evolution(ev) {
     let infEvolution = ev.url
     fetch(infEvolution)
     .then(res => res.json())
-    .then( v => getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url))
+    .then( v => {
+        (v.chain.evolves_to[0] === undefined) ? notEvolution.style.display = "flex" : notEvolution.style.display = "none"
+        getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url)
+    })
 }
 
 function getEvolution (v1, v2, v3) {
@@ -159,8 +163,8 @@ function renderPokemon(pokeData){
         poke_species(pokeData.species)
 
         //seccion experimental 
-        console.log(mtm_evolution);
-        
+        // console.log(mtm_evolution);
+
 
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeData.id)
