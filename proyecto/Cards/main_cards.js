@@ -40,6 +40,7 @@ const getPic = JSON.parse( localStorage.getItem('UserImg') )
 const btn_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload')
 const poke_arr = []
+
 //img evolution
 const getClassImg = document.getElementsByClassName("mtm")
 
@@ -98,9 +99,7 @@ function poke_evolution(ev) {
     let infEvolution = ev.url
     fetch(infEvolution)
     .then(res => res.json())
-    .then( v => {
-      getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url)
-    })
+    .then( v => getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url))
 }
 
 function getEvolution (v1, v2, v3) {
@@ -112,14 +111,9 @@ function getEvolution (v1, v2, v3) {
 function removeDuplicates (arr) {
 
     const poke = []
-    arr.forEach( (elemento) => {
-      if (!poke.includes(elemento)) {
-        poke.push(elemento)
-    }
-    if (poke.length >= 6 ) {
-        poke[4] = elemento
-        poke.pop()
-    }
+    arr.forEach( (e) => {
+        if (!poke.includes(e)) poke.push(e)
+        if (poke.length >= 6 ) poke[4] = e, poke.pop()
     })
 
     localStorage.setItem('poke_inf', JSON.stringify(poke))
@@ -150,6 +144,8 @@ function renderPokemon(pokeData){
     })
 
     infCards.addEventListener('click', () => {
+        (pokeAb.length ===  1) ? poke_skill.innerHTML = "Skill" : poke_skill.innerHTML = "Skills"
+
         pokeContainerModal.style.display = 'flex'
         htmlScroll.style.overflow= 'hidden'
         poke_Img.src = pokeImg
@@ -162,13 +158,10 @@ function renderPokemon(pokeData){
         createAbility(countAbility, poke_hab)
         poke_species(pokeData.species)
 
-        if (pokeAb.length ===  1) {
-            poke_skill.innerHTML = "Skill"
-        } else {
-            poke_skill.innerHTML = "Skills"
-        }
-
         //seccion experimental 
+        console.log(mtm_evolution);
+        
+
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeData.id)
             btn_select.innerHTML = `You have chosen ${pokeData.name}`
@@ -196,19 +189,11 @@ window.addEventListener("click", e => {
     }
 })
 
-user_profile.addEventListener("click", () => {
-    location.href = "http:/proyecto/User-Profile/index_user.html"
-})
-redirectionLogin.addEventListener ("click", () => {
-    location.href = "http:/proyecto/Register/index_res.html"
-})
+user_profile.addEventListener("click", () => location.href = "http:/proyecto/User-Profile/index_user.html")
+redirectionLogin.addEventListener ("click", () => location.href = "http:/proyecto/Register/index_res.html")
 
-if ( getPic === null) {
-    img_user.src = "../assets/img/Pokemon_Trainer_Boy.png"
-}
-if (img_user.src === "" ) {
-    img_user.src = getPic
-}
+if (getPic === null) img_user.src = "../assets/img/Pokemon_Trainer_Boy.png"
+if (img_user.src === "" )  img_user.src = getPic
 
 user_name.innerHTML = getName
 
@@ -217,6 +202,7 @@ preload.classList.add('preloader')
 preload_cards.appendChild(preload)
 
 fetchDataPokemon()
+
 
 /*
 pendiente revisar el HTMLCollection y si es igual a 151 elementos el loader tiene que eliminarse

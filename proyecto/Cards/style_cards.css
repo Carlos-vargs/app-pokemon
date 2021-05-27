@@ -298,7 +298,6 @@ main{
 .mtm {
     width: 90px;
     margin: 0 auto;
-    /* filter: brightness(0); */
 }
 
 .mtm:hover {

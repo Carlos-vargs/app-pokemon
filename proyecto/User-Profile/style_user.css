@@ -177,6 +177,7 @@ main{
 .button--edit-profile{
     display: none;
     background-color: #D0D9F2;
+    justify-content: center;
     border: none;
     border-radius: 20px;
     width: 20%;
@@ -247,6 +248,12 @@ main{
     width: 23px;
 }
 
+.change_ball{
+    right: -50px;
+    width: 50px;    
+}
+
+
 .container_littleBall {
     display: flex;
     flex-direction: column;
@@ -259,6 +266,8 @@ main{
     justify-content: center;
     align-items: flex-end;
     flex-wrap: wrap;
+    gap: 20px;
+    margin-left: 25px;
 }
 
 .title-pokemons_select{
@@ -266,6 +275,12 @@ main{
     min-width: 200px;
     width: 20%;
     margin: 3% auto;
+}
+
+.big_pokeball {
+    max-width: none;
+    min-width: 0;
+    width: 100px;
 }
 
 .icon_question{
@@ -280,5 +295,11 @@ main{
 @media (max-width: 480px){
     .all-information-container{
         flex-direction: column;
+    }
+    .big_pokeball{
+        width: 70px;
+    }
+    .pokeball {
+        min-width: 90px;
     }
 }

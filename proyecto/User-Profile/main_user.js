@@ -17,66 +17,52 @@ const button1 = document.getElementById('button-hidden');
 const button2 = document.getElementById('btn-hidden');
 //select your pokemon
 const allcontainer_pokeball = document.getElementById('container_pokeball_selected');
-const redirect_cards = document.getElementById('redirect_cards');
 const pokeHover = document.getElementsByClassName("pokeball");
-const click_little_ball = document.getElementsByClassName('little_ball');
-/*
-const img1 = document.getElementById("poke1");
-const img2 = document.getElementById("poke2");
-const img3 = document.getElementById("poke3");
-const img4 = document.getElementById("poke4");
-const img5 = document.getElementById("poke5");
-*/
+const click_little_ball = document.getElementsByClassName('change_ball');
+const togglePokeball = document.getElementsByClassName("big_pokeball");
+let eDiv2;
 
 //function IIFE
 (() => {
-    let picture = JSON.parse(localStorage.getItem('UserImg'))
-    if (picture === null) {
-        preview_img.src = "../assets/img/Pokemon_Trainer_Boy.png"
-    } else {
-        preview_img.src = picture
-    };
-    //user information
+    let picture = JSON.parse(localStorage.getItem('UserImg'));
+    (picture === null) ? preview_img.src = "../assets/img/Pokemon_Trainer_Boy.png" : preview_img.src = picture;
+
     let getNameUser = JSON.parse ( localStorage.getItem('user-name') )
     let getNickName =  JSON.parse( localStorage.getItem('user-nick') ) 
     let getDataEmail = JSON.parse( localStorage.getItem('user-gmail') )
     let getBirthday = JSON.parse ( localStorage.getItem('user-birthday') )
     let getGender = JSON.parse ( localStorage.getItem('user-checked--m') )
     let getGender_1 = JSON.parse ( localStorage.getItem('user-checked--f') )
-    //pokemons
     let getPokemons = JSON.parse( localStorage.getItem('poke_inf') )
-    // console.log(getPokemons);
     
+    const displayNone = (obj, obj1) => {
+        let arr = [obj, obj1];
+        for (let i = 0; i < arr.length; i++) arr[i].style.display = 'none'
+    }
 
-    if (getNickName,getDataEmail  === null) {
+    if(getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
     } else {
         name_user.value = getNameUser
         nickname_user.value = getNickName
         email_user.value = getDataEmail
         birthday_user.value = getBirthday
-    };
+    }
 
-    if (getGender) {
-        button2.style.display = 'none'
-        genderM.style.display = 'none'
-    }
-    if (getGender_1) {
-        button1.style.display = 'none'
-        genderF.style.display = 'none'
-    }
+    if (getGender) displayNone(button2, genderM)
+    if (getGender_1) displayNone(button1, genderF)
     
     //seccion experimental 
     for (let p = 0; p < getPokemons.length; p++) {
         let eDiv = document.createElement('div')
         let poke_img = document.createElement('img')
         let pokeballdown = document.createElement('img')
-        poke_img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
-        pokeballdown.src = "../assets/img/pokeball.png"
-        
-        poke_img.classList.add('pokeball')
-        pokeballdown.classList.add('little_ball')
-        eDiv.classList.add('container_littleBall')
+        eDiv2 = eDiv 
+
+        poke_img.src = "../assets/img/pokeball.png"
+        pokeballdown.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
+        poke_img.classList.add('big_pokeball')
+        pokeballdown.classList.add('change_ball')
         
         eDiv.appendChild(poke_img)
         eDiv.appendChild(pokeballdown)
@@ -85,6 +71,7 @@ const img5 = document.getElementById("poke5");
     }
 
 })()
+
 
 get_input.addEventListener("change", () => {
     
@@ -100,21 +87,21 @@ edit_profile.addEventListener("click", () => {
     for (let i = 0; i < inf_account.length; i++) {
         inf_account[i].disabled = false; 
     }
- 
+
     genderM.disabled = false
     genderF.disabled = false
     
-    button_Profile.style.display = "block";
-
-    button1.style.display = "flex"
-    button2.style.display = "flex"
-    genderM.style.display = 'flex'
-    genderF.style.display = 'flex'
+    changeDisplay(button1, button2, genderM, genderF, button_Profile)
 
     localStorage.removeItem('user-checked--m')
     localStorage.removeItem('user-checked--f')
 
 })
+
+const changeDisplay = (a,b,c,d,e) => {
+    let arr = [a,b,c,d,e]
+    for (let i = 0; i < arr.length; i++) arr[i].style.display = 'flex'
+}
 
 form_values.addEventListener("submit", () => {
     let newNickName = JSON.stringify(nickname_user.value)
@@ -127,23 +114,34 @@ form_values.addEventListener("submit", () => {
     localStorage.setItem('user-name', username) 
     localStorage.setItem('user-birthday', userBirthday)
     
-    if (genderM.checked) {
-        localStorage.setItem('user-checked--m', genderM.checked )
-    } 
-    if (genderF.checked) {
-        localStorage.setItem('user-checked--f', genderF.checked )
-    }
+    if (genderM.checked) localStorage.setItem('user-checked--m', genderM.checked )
+    if (genderF.checked) localStorage.setItem('user-checked--f', genderF.checked )
 })
 
-
 go_back.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
-redirect_cards.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 
-// console.log()
+
+
+// si el user toca la pokebola mostrar el pokemon en la imagen grande y la pokebola al contendor pequeño 
+// agregar un addeventlistener a las pokebolas 
+// agregar un addeventlistener a los iconos pequeños 
+// cuando le de click en las pokebolas cambiar la imagen por el pokemon
+//cuando le de click al icono pequeño regresar la imagen grande a las pokebolas 
+
+
 for (let i = 0; i < click_little_ball.length; i++) {
-    // console.log(click_little_ball[i]);
     click_little_ball[i].addEventListener("click", () => {
-        
+        let idg = JSON.parse(localStorage.getItem("poke_inf"))
+
+        for (let i = 0; i < idg.length; i++) {
+            
+            click_little_ball[i].src = "../assets/img/pokeball.png"
+            click_little_ball[i].style.width = "25px"
+
+            togglePokeball[i].src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
+
+            togglePokeball[i].classList.add("pokeball")
+        }
     })
     
 }
