@@ -19,6 +19,7 @@ const button2 = document.getElementById('btn-hidden');
 const allcontainer_pokeball = document.getElementById('container_pokeball_selected');
 const redirect_cards = document.getElementById('redirect_cards');
 const pokeHover = document.getElementsByClassName("pokeball");
+const click_little_ball = document.getElementsByClassName('little_ball');
 /*
 const img1 = document.getElementById("poke1");
 const img2 = document.getElementById("poke2");
@@ -45,6 +46,7 @@ const img5 = document.getElementById("poke5");
     //pokemons
     let getPokemons = JSON.parse( localStorage.getItem('poke_inf') )
     // console.log(getPokemons);
+    
 
     if (getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
@@ -66,12 +68,22 @@ const img5 = document.getElementById("poke5");
     
     //seccion experimental 
     for (let p = 0; p < getPokemons.length; p++) {
+        let eDiv = document.createElement('div')
         let poke_img = document.createElement('img')
+        let pokeballdown = document.createElement('img')
         poke_img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
-        //"../assets/img/pokeball.png"
+        pokeballdown.src = "../assets/img/pokeball.png"
+        
         poke_img.classList.add('pokeball')
-        allcontainer_pokeball.appendChild(poke_img)
+        pokeballdown.classList.add('little_ball')
+        eDiv.classList.add('container_littleBall')
+        
+        eDiv.appendChild(poke_img)
+        eDiv.appendChild(pokeballdown)
+
+        allcontainer_pokeball.appendChild(eDiv)
     }
+
 })()
 
 get_input.addEventListener("change", () => {
@@ -123,6 +135,15 @@ form_values.addEventListener("submit", () => {
     }
 })
 
+
 go_back.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 redirect_cards.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 
+// console.log()
+for (let i = 0; i < click_little_ball.length; i++) {
+    // console.log(click_little_ball[i]);
+    click_little_ball[i].addEventListener("click", () => {
+        
+    })
+    
+}

@@ -233,15 +233,31 @@ main{
     max-width: 300px;
     min-width: 130px;
     width: 10%;
-    margin: 0 10px;
-    /* border: 1px solid red;
-    border-radius: 100%; */
+    /*
+    border: 1px solid red;
+    border-radius: 100%; 
+
+    */
+}
+
+.little_ball {
+    position: absolute;
+    right: -15px;
+    bottom: 0;
+    width: 23px;
+}
+
+.container_littleBall {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 20px;
 }
 
 .pokeballs{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
 }
 
