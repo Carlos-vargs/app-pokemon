@@ -88,7 +88,6 @@ function poke_species(spc) {
     fetch(spc_inf)
     .then(res => res.json())
     .then( b => {
-        //Versiones
         let bio_ifn = b.flavor_text_entries[1].flavor_text
         poke_bio.innerHTML = firstLetter(bio_ifn.toLowerCase())
 
@@ -123,11 +122,7 @@ function removeDuplicates (arr) {
     localStorage.setItem('poke_inf', JSON.stringify(poke))
 }
 
-function removeElements(obj) {
-    for (var i = obj.length - 1; i >= 0; --i) {
-        obj[i].remove();
-    }
-}
+function removeElements(obj) {for (var i = obj.length - 1; i >= 0; --i) obj[i].remove()}
 
 function renderPokemon(pokeData){
     let countAbility = pokeData.abilities
@@ -162,15 +157,10 @@ function renderPokemon(pokeData){
         createAbility(countAbility, poke_hab)
         poke_species(pokeData.species)
 
-        //seccion experimental 
-        // console.log(mtm_evolution);
-
-
         btn_select.addEventListener("click", () => {
             poke_arr.push(pokeData.id)
             btn_select.innerHTML = `You have chosen ${pokeData.name} <span class="iconCheck"></span>`
             removeDuplicates(poke_arr)
-            // pendiente agregar el icono de listo para agregar pokemon. 
         })
     })
 }
@@ -206,14 +196,6 @@ preload.classList.add('preloader')
 preload_cards.appendChild(preload)
 
 fetchDataPokemon()
-
-
-/*
-pendiente revisar el HTMLCollection y si es igual a 151 elementos el loader tiene que eliminarse
-document.addEventListener("DOMContentLoaded",  e => {
-    let cards_length = document.getElementsByClassName('container-cards--info')
-})
-*/
 
 setTimeout(() => {
     preload_cards.style.display = "none"

@@ -102,7 +102,6 @@ main{
     display: none;
     justify-content: center;
     flex-wrap: wrap;
-    /* gap: 10px; */
 }
 
 .preload-container {
@@ -155,7 +154,6 @@ main{
     background-size: contain;
     width: 18px;
     height: 18px;
-    /* border: 1px solid cornsilk; */
     background-color: cornsilk;
     border-radius: 50%;
     margin-left: 8px;

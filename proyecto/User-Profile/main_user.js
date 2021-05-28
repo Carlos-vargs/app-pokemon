@@ -22,7 +22,6 @@ const click_little_ball = document.getElementsByClassName('change_ball');
 const togglePokeball = document.getElementsByClassName("big_pokeball");
 let eDiv2;
 
-//function IIFE
 (() => {
     let picture = JSON.parse(localStorage.getItem('UserImg'));
     (picture === null) ? preview_img.src = "../assets/img/Pokemon_Trainer_Boy.png" : preview_img.src = picture;
@@ -35,10 +34,7 @@ let eDiv2;
     let getGender_1 = JSON.parse ( localStorage.getItem('user-checked--f') )
     let getPokemons = JSON.parse( localStorage.getItem('poke_inf') )
     
-    const displayNone = (obj, obj1) => {
-        let arr = [obj, obj1];
-        for (let i = 0; i < arr.length; i++) arr[i].style.display = 'none'
-    }
+    const displayNone = (...obj) => {for (let i = 0; i < obj.length; i++) obj[i].style.display = 'none'}
 
     if(getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
@@ -68,7 +64,6 @@ let eDiv2;
 
         allcontainer_pokeball.appendChild(eDiv)
     }
-
 })()
 
 
@@ -83,9 +78,7 @@ get_input.addEventListener("change", () => {
 })
 
 edit_profile.addEventListener("click", () => {
-    for (let i = 0; i < inf_account.length; i++) {
-        inf_account[i].disabled = false; 
-    }
+    for (let i = 0; i < inf_account.length; i++) inf_account[i].disabled = false; 
 
     genderM.disabled = false
     genderF.disabled = false
@@ -97,10 +90,7 @@ edit_profile.addEventListener("click", () => {
 
 })
 
-const changeDisplay = (a,b,c,d,e) => {
-    let arr = [a,b,c,d,e]
-    for (let i = 0; i < arr.length; i++) arr[i].style.display = 'flex'
-}
+const changeDisplay = (...obj) => {for (let i = 0; i < obj.length; i++) obj[i].style.display = 'flex'}
 
 form_values.addEventListener("submit", () => {
     let newNickName = JSON.stringify(nickname_user.value)
@@ -119,17 +109,11 @@ form_values.addEventListener("submit", () => {
 
 go_back.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 
-//seccion experimental 
 for (let i = 0; i < click_little_ball.length; i++) {
     click_little_ball[i].addEventListener("click", () => {
         let idg = JSON.parse(localStorage.getItem("poke_inf"))
         click_little_ball[i].src = "../assets/img/pokeball.png"
         click_little_ball[i].style.width = "25px"
         togglePokeball[i].src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
-        
     })
-    
 }
-
-// console.log(click_little_ball[i].src);
-//const changeImg = pic => togglePokeball.src = pic.src
