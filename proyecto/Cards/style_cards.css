@@ -148,13 +148,12 @@ main{
 }
 
 .iconCheck {
-    background-image: url('../assets/icons/icons8-check-mark-50.png');
+    background-image: url('../assets/icons/check_icon.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     width: 18px;
     height: 18px;
-    background-color: cornsilk;
     border-radius: 50%;
     margin-left: 8px;
 }

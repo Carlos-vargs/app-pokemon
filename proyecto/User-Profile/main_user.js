@@ -110,10 +110,18 @@ form_values.addEventListener("submit", () => {
 go_back.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 
 for (let i = 0; i < click_little_ball.length; i++) {
+    let idg = JSON.parse(localStorage.getItem("poke_inf"))
+    let url1 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
+    let url2 = "../assets/img/pokeball.png"
+
     click_little_ball[i].addEventListener("click", () => {
-        let idg = JSON.parse(localStorage.getItem("poke_inf"))
-        click_little_ball[i].src = "../assets/img/pokeball.png"
+        click_little_ball[i].src = url2
         click_little_ball[i].style.width = "25px"
-        togglePokeball[i].src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
+        togglePokeball[i].src = url1
+    })
+    togglePokeball[i].addEventListener("click", () => {
+        togglePokeball[i].src =  url2
+        click_little_ball[i].src = url1
+        click_little_ball[i].style.width = "50px"
     })
 }

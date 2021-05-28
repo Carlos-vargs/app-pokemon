@@ -12,8 +12,6 @@ html{
     font-size: 62.5%;
     background-color: #F1F1F1;
     font-family: 'Lato', sans-serif;
-    /* background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); */
-    /* background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%); */
 }
 
 
@@ -208,15 +206,7 @@ main{
     background-position: right center;
    color: #fff;
    text-decoration: none;
- }
-
-
-/* .button-back:hover,
-.button-back:focus{
-    color: white;
-    background-color:#660a1b;
-    transition: all 1s ease;
-} */
+}
 
 .container-pokeball{
     display: flex;
@@ -234,11 +224,6 @@ main{
     max-width: 300px;
     min-width: 130px;
     width: 10%;
-    /*
-    border: 1px solid red;
-    border-radius: 100%; 
-
-    */
 }
 
 .little_ball {
@@ -281,15 +266,6 @@ main{
     max-width: none;
     min-width: 0;
     width: 100px;
-}
-
-.icon_question{
-    background-image: url("../assets/icons/icons8-question-mark-50.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 18px;
-    height: 18px;
 }
 
 @media (max-width: 480px){
