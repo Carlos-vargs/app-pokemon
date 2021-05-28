@@ -52,7 +52,6 @@ let eDiv2;
     if (getGender) displayNone(button2, genderM)
     if (getGender_1) displayNone(button1, genderF)
     
-    //seccion experimental 
     for (let p = 0; p < getPokemons.length; p++) {
         let eDiv = document.createElement('div')
         let poke_img = document.createElement('img')
@@ -120,28 +119,17 @@ form_values.addEventListener("submit", () => {
 
 go_back.addEventListener("click", () => location.href = "http:/proyecto/Cards/index_cards.html")
 
-
-
-// si el user toca la pokebola mostrar el pokemon en la imagen grande y la pokebola al contendor pequeño 
-// agregar un addeventlistener a las pokebolas 
-// agregar un addeventlistener a los iconos pequeños 
-// cuando le de click en las pokebolas cambiar la imagen por el pokemon
-//cuando le de click al icono pequeño regresar la imagen grande a las pokebolas 
-
-
+//seccion experimental 
 for (let i = 0; i < click_little_ball.length; i++) {
     click_little_ball[i].addEventListener("click", () => {
         let idg = JSON.parse(localStorage.getItem("poke_inf"))
-
-        for (let i = 0; i < idg.length; i++) {
-            
-            click_little_ball[i].src = "../assets/img/pokeball.png"
-            click_little_ball[i].style.width = "25px"
-
-            togglePokeball[i].src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
-
-            togglePokeball[i].classList.add("pokeball")
-        }
+        click_little_ball[i].src = "../assets/img/pokeball.png"
+        click_little_ball[i].style.width = "25px"
+        togglePokeball[i].src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
+        
     })
     
 }
+
+// console.log(click_little_ball[i].src);
+//const changeImg = pic => togglePokeball.src = pic.src
