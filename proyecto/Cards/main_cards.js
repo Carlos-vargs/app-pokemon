@@ -198,6 +198,6 @@ preload_cards.appendChild(preload)
 fetchDataPokemon()
 
 setTimeout(() => {
+    allPokemonContainer.style.display = "flex" 
     preload_cards.style.display = "none"
-    allPokemonContainer.style.display = "flex"
 }, 2000);
