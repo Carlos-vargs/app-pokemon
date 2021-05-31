@@ -1,0 +1,179 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Lato', sans-serif;
+    background: rgb(242,183,5);
+    background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
+    overflow-x: hidden;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.poke-portada{
+    max-width: 400px;
+    min-width: 200px;
+    width: 80%;
+    height: auto;
+    margin-top: 10%;
+}
+
+.container--poke-logo-portada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.pokemon--logo{
+    max-width: 460px;
+    min-width: 200px;
+    width: 90%;
+    height: auto;
+    margin-top: 5%;
+}
+
+.form-title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.container-forms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 360px;
+    min-width: 300px;
+    width: 100%;
+    margin-top: 4%;
+    overflow-x: hidden  ;
+}
+
+.container-pokeForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    min-width: 300px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.form_hidden{
+    display: none;
+    margin-left: 100%;
+}
+
+.form--top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #D9072D;
+    width: 100%;
+    height: 60px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    min-width: 250px;
+    width: 90%;
+    margin-top: 10%;
+
+}
+.main-form--text{
+    font-size: 1.6rem;
+    margin: 4% 0;
+}
+
+.text-warning{
+    color: red;
+    font-size: 1.6rem;
+    margin: 4% 0;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.main-form--design-inputs{
+    padding-left: 5%;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    background-color: #F3F3F3;
+}
+
+.main-form--design-inputs:hover,
+.main-form--design-inputs:focus{
+    outline: none;
+    background-color: white;
+    border: 1px solid #8ab9fc;
+    box-shadow: 0 2px 6px rgb(165, 194, 236);
+    transition: all 0.2s ease;
+}
+.button-form{
+    max-width: 400px;
+    min-width: 250px;
+    width: 100%;
+    height: 40px;
+    color: rgb(100, 99, 99);
+    border: none;
+    border-radius: 10px;
+    margin-top: 10%;
+    padding: 0.5em 1.2em;
+    background: rgba(0,0,0,0);
+}
+.button-form:hover,
+.button-form:focus {
+    transition: all 1s ease;
+    background:#D9072D;
+    color: #fff;
+    outline: none;
+}
+
+.warnings{
+    text-align: center;
+    padding: 2% 0;
+    font-size: 1.5rem;
+    margin: auto;
+}
+
+.Login-redirect{
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+
+@media (max-width: 480px){
+    .container-pokeForm{
+        width: 93%;
+        margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+    }
+}
