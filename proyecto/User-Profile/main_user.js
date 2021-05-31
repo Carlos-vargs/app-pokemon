@@ -141,14 +141,14 @@ for (let i = 0; i < favorite.length; i++) {
             favorite[i].src = "../assets/icons/star_selected.svg"
             let sum = 1
             control = control + sum
-            console.log(control);
+            console.log(`sum = ${control}`);
             if (control > 2) {
                 favorite[i].src = "../assets/icons/star.svg"
             }
         } else {
             favorite[i].src = "../assets/icons/star.svg" 
             control = control - control 
-            console.log(`resultado res = ${control}`);
+            console.log(`res = ${control}`);
         } 
 
     })
