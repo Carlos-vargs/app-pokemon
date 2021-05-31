@@ -136,10 +136,12 @@ for (let i = 0; i < click_little_ball.length; i++) {
 let control = 0
 for (let i = 0; i < favorite.length; i++) {
     favorite[i].addEventListener('click', () => {
-        favorite[i].src = "/assets/icons/star_selected.svg"
-
-        console.log(favorite[i].src);
-
+        
+        if (favorite[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
+            favorite[i].src = "/assets/icons/star_selected.svg"
+        } else {
+            favorite[i].src = "/assets/icons/star.svg"
+        }
 
         /*
         if (favorite[i].src === "/assets/icons/star.svg") {
