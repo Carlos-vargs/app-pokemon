@@ -138,6 +138,8 @@ for (let i = 0; i < favorite.length; i++) {
     favorite[i].addEventListener('click', () => {
         favorite[i].src = "/assets/icons/star_selected.svg"
 
+        console.log(favorite[i].src);
+
 
         /*
         if (favorite[i].src === "/assets/icons/star.svg") {
