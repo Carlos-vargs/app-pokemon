@@ -183,8 +183,8 @@ window.addEventListener("click", e => {
     }
 })
 
-user_profile.addEventListener("click", () => location.href = "http:/src/pages/User-Profile/index_user.html")
-redirectionLogin.addEventListener ("click", () => location.href = "http:/src/index.html#")
+user_profile.addEventListener("click", () => location.href = "/pages/User-Profile/index_user.html")
+redirectionLogin.addEventListener ("click", () => location.href = "/index.html#")
 
 if (getPic === null) img_user.src = "../../assets/img/Pokemon_Trainer_Boy.png"
 if (img_user.src === "" )  img_user.src = getPic
