@@ -104,7 +104,7 @@ value_form.addEventListener('submit', e => {
 
 login_redirect.addEventListener('click', () => {
     
-    login_img.src = "/assets/img/pokemons-portada(3).png"
+    login_img.src = "./assets/img/pokemons-portada(3).png"
     login_img.style.marginTop = "0"
     
     traslate_form.style.transform = 'translateY(-200vh)'
@@ -123,7 +123,7 @@ login_redirect.addEventListener('click', () => {
 
 reverse.addEventListener('click', () => {
     
-    login_img.src = "/assets/img/pokesPortada.png"
+    login_img.src = "./assets/img/pokesPortada.png"
     login_img.style.marginTop = "10%"    
     traslate_form.style.transform = 'translateY(0)'
     
