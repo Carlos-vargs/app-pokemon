@@ -268,6 +268,22 @@ main{
     width: 100px;
 }
 
+.star_favorite {
+    position: absolute;
+    width: 17px;
+    left: 80%;
+}
+
+.starxd {
+    background-color:transparent;
+    border-radius: 100%;
+    position: absolute;
+    width: 17px;
+    left: 80%;
+
+}
+
+
 @media (max-width: 480px){
     .all-information-container{
         flex-direction: column;

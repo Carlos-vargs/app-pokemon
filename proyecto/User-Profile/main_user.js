@@ -20,6 +20,7 @@ const allcontainer_pokeball = document.getElementById('container_pokeball_select
 const pokeHover = document.getElementsByClassName("pokeball");
 const click_little_ball = document.getElementsByClassName('change_ball');
 const togglePokeball = document.getElementsByClassName("big_pokeball");
+const favorite  = document.getElementsByClassName('star_favorite')
 let eDiv2;
 
 (() => {
@@ -35,6 +36,7 @@ let eDiv2;
     let getPokemons = JSON.parse( localStorage.getItem('poke_inf') )
     
     const displayNone = (...obj) => {for (let i = 0; i < obj.length; i++) obj[i].style.display = 'none'}
+
 
     if(getNickName,getDataEmail  === null) {
         location.href = "http:/proyecto/Register/index_res.html"
@@ -52,15 +54,20 @@ let eDiv2;
         let eDiv = document.createElement('div')
         let poke_img = document.createElement('img')
         let pokeballdown = document.createElement('img')
+        let poke_favorite = document.createElement('img')
         eDiv2 = eDiv 
 
         poke_img.src = "../assets/img/pokeball.png"
         pokeballdown.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
+        poke_favorite.src = "../assets/icons/star.svg"
         poke_img.classList.add('big_pokeball')
         pokeballdown.classList.add('change_ball')
+        poke_favorite.classList.add('star_favorite')
+        eDiv.style.position = "relative"
         
         eDiv.appendChild(poke_img)
         eDiv.appendChild(pokeballdown)
+        eDiv.appendChild(poke_favorite)
 
         allcontainer_pokeball.appendChild(eDiv)
     }
@@ -125,3 +132,16 @@ for (let i = 0; i < click_little_ball.length; i++) {
         click_little_ball[i].style.width = "50px"
     })
 }
+
+for (let i = 0; i < favorite.length; i++) {
+    favorite[i].addEventListener('click', () => {
+
+        if (favorite[i].src === "http://127.0.0.1:5500/proyecto/assets/icons/star.svg") {
+            favorite[i].src = "../assets/icons/star_selected.svg"
+        } else {
+            favorite[i].src = "../assets/icons/star.svg"  
+        } 
+
+    })
+}
+
