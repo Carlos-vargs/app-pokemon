@@ -137,7 +137,7 @@ let control = 0
 for (let i = 0; i < favorite.length; i++) {
     favorite[i].addEventListener('click', () => {
 
-        if (favorite[i].src === "http://127.0.0.1:5500/src/assets/icons/star.svg") {
+        if (favorite[i].src === "/assets/icons/star.svg") {
             favorite[i].src = "../../assets/icons/star_selected.svg"
             let sum = 1
             control = control + sum
