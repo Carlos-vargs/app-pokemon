@@ -137,7 +137,7 @@ let control = 0
 for (let i = 0; i < favorite.length; i++) {
     favorite[i].addEventListener('click', () => {
 
-        if (favorite[i].src === "/assets/icons/star.svg") {
+        if (favorite[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
             favorite[i].src = "/assets/icons/star_selected.svg"
             let sum = 1
             control = control + sum
