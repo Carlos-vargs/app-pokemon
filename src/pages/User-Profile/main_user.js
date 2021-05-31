@@ -146,6 +146,7 @@ for (let i = 0; i < favorite.length; i++) {
             }
         } else {
             favorite[i].src = "/assets/icons/star.svg"
+            control++
             control = control - control 
         }
     })
