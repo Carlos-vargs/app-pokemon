@@ -25,7 +25,7 @@ let eDiv2;
 
 (() => {
     let picture = JSON.parse(localStorage.getItem('UserImg'));
-    (picture === null) ? preview_img.src = "../../assets/img/Pokemon_Trainer_Boy.png" : preview_img.src = picture;
+    (picture === null) ? preview_img.src = "/assets/img/Pokemon_Trainer_Boy.png" : preview_img.src = picture;
 
     let getNameUser = JSON.parse ( localStorage.getItem('user-name') )
     let getNickName =  JSON.parse( localStorage.getItem('user-nick') ) 
@@ -114,7 +114,7 @@ form_values.addEventListener("submit", () => {
     if (genderF.checked) localStorage.setItem('user-checked--f', genderF.checked )
 })
 
-go_back.addEventListener("click", () => location.href = "/pages/Cards/index_cards.html")
+go_back.addEventListener("click", () => location.href = "/pages/Cards/index.html")
 
 for (let i = 0; i < click_little_ball.length; i++) {
     let idg = JSON.parse(localStorage.getItem("poke_inf"))
