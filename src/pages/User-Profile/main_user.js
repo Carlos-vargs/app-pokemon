@@ -139,6 +139,7 @@ for (let i = 0; i < favorite.length; i++) {
         
         if (favorite[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
             favorite[i].src = "/assets/icons/star_selected.svg"
+            localStorage.setItem("active", JSON.stringify(favorite[i].src))
             let sum = 1
             control = control + sum
             if (control > 2) {
