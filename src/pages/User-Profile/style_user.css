@@ -269,6 +269,8 @@ main{
 }
 
 .star_favorite {
+    display: none;
+    top: 0;
     position: absolute;
     width: 17px;
     left: 80%;
@@ -280,7 +282,18 @@ main{
     position: absolute;
     width: 17px;
     left: 80%;
+}
 
+.edit_pokefav{
+    background-image: url("../../assets/icons/edit_pokeFavorite.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 24px;
+    right: 176px;
 }
 
 
