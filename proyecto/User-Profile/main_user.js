@@ -133,13 +133,22 @@ for (let i = 0; i < click_little_ball.length; i++) {
     })
 }
 
+let control = 0
 for (let i = 0; i < favorite.length; i++) {
     favorite[i].addEventListener('click', () => {
 
         if (favorite[i].src === "http://127.0.0.1:5500/proyecto/assets/icons/star.svg") {
             favorite[i].src = "../assets/icons/star_selected.svg"
+            let sum = 1
+            control = control + sum
+            console.log(control);
+            if (control > 2) {
+                favorite[i].src = "../assets/icons/star.svg" 
+                 
+            }
         } else {
-            favorite[i].src = "../assets/icons/star.svg"  
+            favorite[i].src = "../assets/icons/star.svg" 
+
         } 
 
     })
