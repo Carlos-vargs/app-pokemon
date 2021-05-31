@@ -1,5 +1,5 @@
 //redirects
-const redirectPage = "http:/src/page/Cards/index_cards.html"
+const redirectPage = "http:/src/pages/Cards/index_cards.html"
 const reverse = document.getElementById('account-redirect')
 // get the form values
 const value_form = document.getElementById('form')
