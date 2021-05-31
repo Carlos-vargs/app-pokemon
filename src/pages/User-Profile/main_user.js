@@ -114,7 +114,7 @@ form_values.addEventListener("submit", () => {
     if (genderF.checked) localStorage.setItem('user-checked--f', genderF.checked )
 })
 
-go_back.addEventListener("click", () => location.href = "/page/Cards/index_cards.html")
+go_back.addEventListener("click", () => location.href = "/pages/Cards/index_cards.html")
 
 for (let i = 0; i < click_little_ball.length; i++) {
     let idg = JSON.parse(localStorage.getItem("poke_inf"))
