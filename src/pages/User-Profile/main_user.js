@@ -119,7 +119,7 @@ go_back.addEventListener("click", () => location.href = "/pages/Cards/index_card
 for (let i = 0; i < click_little_ball.length; i++) {
     let idg = JSON.parse(localStorage.getItem("poke_inf"))
     let url1 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
-    let url2 = ""
+    let url2 = "/assets/img/pokeball.png"
 
     click_little_ball[i].addEventListener("click", () => {
         click_little_ball[i].src = url2
