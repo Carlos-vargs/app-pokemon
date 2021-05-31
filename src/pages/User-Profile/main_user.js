@@ -39,7 +39,7 @@ let eDiv2;
 
 
     if(getNickName,getDataEmail  === null) {
-        location.href = "http:/src/index.html#"
+        location.href = "/#"
     } else {
         name_user.value = getNameUser
         nickname_user.value = getNickName
@@ -57,9 +57,9 @@ let eDiv2;
         let poke_favorite = document.createElement('img')
         eDiv2 = eDiv 
 
-        poke_img.src = "../../assets/img/pokeball.png"
+        poke_img.src = "/assets/img/pokeball.png"
         pokeballdown.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
-        poke_favorite.src = "../../assets/icons/star.svg"
+        poke_favorite.src = "/assets/icons/star.svg"
         poke_img.classList.add('big_pokeball')
         pokeballdown.classList.add('change_ball')
         poke_favorite.classList.add('star_favorite')
