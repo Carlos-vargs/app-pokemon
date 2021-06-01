@@ -259,7 +259,6 @@ main{
     max-height: 300px;
     min-width: 200px;
     width: 20%;
-    margin: 3% auto;
 }
 
 .big_pokeball {
@@ -270,18 +269,18 @@ main{
 
 .star_favorite {
     display: none;
-    top: 0;
+    /* top: 0;
     position: absolute;
+    left: 80%; */
     width: 17px;
-    left: 80%;
+    margin: 0 0 0 105px;
 }
 
-.starxd {
-    background-color:transparent;
-    border-radius: 100%;
-    position: absolute;
-    width: 17px;
-    left: 80%;
+.container-edit_pokefav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3% auto;
 }
 
 .edit_pokefav{
@@ -291,9 +290,7 @@ main{
     background-size: contain;
     width: 20px;
     height: 20px;
-    position: absolute;
-    top: 24px;
-    right: 176px;
+    margin: 0 0 50px 6px;
 }
 
 

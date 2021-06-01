@@ -22,7 +22,6 @@ const click_little_ball = document.getElementsByClassName('change_ball');
 const togglePokeball = document.getElementsByClassName("big_pokeball");
 const favorite  = document.getElementsByClassName('star_favorite');
 const edit_pokefav = document.getElementById('edit_pokefav')
-
 let eDiv2;
 
 (() => {
@@ -54,22 +53,22 @@ let eDiv2;
     
     for (let p = 0; p < getPokemons.length; p++) {
         let eDiv = document.createElement('div')
+        let poke_favorite = document.createElement('img')
         let poke_img = document.createElement('img')
         let pokeballdown = document.createElement('img')
-        let poke_favorite = document.createElement('img')
         eDiv2 = eDiv 
 
-        poke_img.src = "../../assets/img/pokeball.png"
+        poke_favorite.src = "/assets/icons/star.svg"
+        poke_img.src = "/assets/img/pokeball.png"
         pokeballdown.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
-        poke_favorite.src = "../../assets/icons/star.svg"
+        poke_favorite.classList.add('star_favorite')
         poke_img.classList.add('big_pokeball')
         pokeballdown.classList.add('change_ball')
-        poke_favorite.classList.add('star_favorite')
         eDiv.style.position = "relative"
         
+        eDiv.appendChild(poke_favorite)
         eDiv.appendChild(poke_img)
         eDiv.appendChild(pokeballdown)
-        eDiv.appendChild(poke_favorite)
 
         allcontainer_pokeball.appendChild(eDiv)
     }
@@ -121,7 +120,7 @@ go_back.addEventListener("click", () => location.href = "/pages/Cards/index.html
 for (let i = 0; i < click_little_ball.length; i++) {
     let idg = JSON.parse(localStorage.getItem("poke_inf"))
     let url1 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${idg[i]}.gif`
-    let url2 = "../../assets/img/pokeball.png"
+    let url2 = "/assets/img/pokeball.png"
 
     click_little_ball[i].addEventListener("click", () => {
         click_little_ball[i].src = url2
@@ -139,7 +138,7 @@ for (let i = 0; i < click_little_ball.length; i++) {
 function hiddeElements(obj) {
     for (var i = obj.length - 1; i >= 0; --i) 
 
-    if (obj[i].src === "http://127.0.0.1:5500/src/assets/icons/star.svg") {
+    if (obj[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
         obj[i].style.display = "none"
     }
 
@@ -150,13 +149,13 @@ edit_pokefav.addEventListener("click", () => {
     let control = 0
     for (let i = 0; i < favorite.length; i++) {
         favorite[i].style.display = "block"
-        favorite[i].src = "../../assets/icons/star.svg"
+        favorite[i].src = "/assets/icons/star.svg"
 
         
         favorite[i].addEventListener('click', () => {
             
-            if (favorite[i].src === "http://127.0.0.1:5500/src/assets/icons/star.svg") {
-                favorite[i].src = "../../assets/icons/star_selected.svg"
+            if (favorite[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
+                favorite[i].src = "/assets/icons/star_selected.svg"
                 let sum = 1
                 control = control + sum
                 console.log(control);
