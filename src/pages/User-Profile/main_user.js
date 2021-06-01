@@ -52,26 +52,30 @@ const pokeSelec = [];
     if (getGender) displayNone(button2, genderM)
     if (getGender_1) displayNone(button1, genderF)
     
-    for (let p = 0; p < getPokemons.length; p++) {
-        let eDiv = document.createElement('div')
-        let poke_favorite = document.createElement('img')
-        let poke_img = document.createElement('img')
-        let pokeballdown = document.createElement('img')
-        eDiv2 = eDiv 
-
-        poke_favorite.src = "/assets/icons/star.svg"
-        poke_img.src = "/assets/img/pokeball.png"
-        pokeballdown.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
-        poke_favorite.classList.add('star_favorite')
-        poke_img.classList.add('big_pokeball')
-        pokeballdown.classList.add('change_ball')
-        poke_favorite.alt = getPokemons[p]
+    if (getPokemons === null) {
         
-        eDiv.appendChild(poke_favorite)
-        eDiv.appendChild(poke_img)
-        eDiv.appendChild(pokeballdown)
-
-        allcontainer_pokeball.appendChild(eDiv)
+    } else {
+        for (let p = 0; p < getPokemons.length; p++) {
+            let eDiv = document.createElement('div')
+            let poke_favorite = document.createElement('img')
+            let poke_img = document.createElement('img')
+            let pokeballdown = document.createElement('img')
+            eDiv2 = eDiv 
+    
+            poke_favorite.src = "/assets/icons/star.svg"
+            poke_img.src = "/assets/img/pokeball.png"
+            pokeballdown.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${getPokemons[p]}.gif`
+            poke_favorite.classList.add('star_favorite')
+            poke_img.classList.add('big_pokeball')
+            pokeballdown.classList.add('change_ball')
+            poke_favorite.alt = getPokemons[p]
+            
+            eDiv.appendChild(poke_favorite)
+            eDiv.appendChild(poke_img)
+            eDiv.appendChild(pokeballdown)
+    
+            allcontainer_pokeball.appendChild(eDiv)
+        }
     }
 
     let fav = JSON.parse(localStorage.getItem("pokeFav"))  
