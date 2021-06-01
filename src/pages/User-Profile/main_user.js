@@ -76,12 +76,16 @@ const pokeSelec = [];
 
     let fav = JSON.parse(localStorage.getItem("pokeFav"))  
     for (let a = 0; a < favorite.length; a++) {
-        for (let i = 0; i < fav.length; i++) {
-            if (fav[i] === Number(favorite[a].alt)) {
-                favorite[a].style.display = "block"
-                favorite[a].src = "/assets/icons/star_selected.svg"
-            }
-        } 
+        if (fav === null) {
+            console.log("Hasn't chosen your favorite Pokemon yet");
+        }  else {
+            for (let i = 0; i < fav.length; i++) {
+                if (fav[i] === Number(favorite[a].alt)) {
+                    favorite[a].style.display = "block"
+                    favorite[a].src = "/assets/icons/star_selected.svg"
+                }
+            } 
+        }
         
     } 
 })()
