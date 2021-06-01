@@ -156,7 +156,7 @@ for (let i = 0; i < click_little_ball.length; i++) {
 
 function hiddeElements(obj) {
     for (let i = obj.length - 1; i >= 0; --i) 
-    if (obj[i].src === `${window.location.origin}/src/assets/icons/star.svg`) obj[i].style.display = "none"
+    if (obj[i].src === `${window.location.origin}/assets/icons/star.svg`) obj[i].style.display = "none"
 }
 
 edit_pokefav.addEventListener("click", () => {
@@ -168,7 +168,7 @@ edit_pokefav.addEventListener("click", () => {
 
         favorite[i].addEventListener('click', () => {
             
-            if (favorite[i].src === `${window.location.origin}/src/assets/icons/star.svg`) {
+            if (favorite[i].src === `${window.location.origin}/assets/icons/star.svg`) {
                 favorite[i].src = "/assets/icons/star_selected.svg"
                 pokeSelec.push(Number(favorite[i].alt))
                 console.log(pokeSelec);
