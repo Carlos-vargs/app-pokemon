@@ -113,13 +113,16 @@ function getEvolution (v1, v2, v3) {
 
 function removeDuplicates (arr) {
 
-    const poke = []
-    arr.forEach( (e) => {
-        if (!poke.includes(e)) poke.push(e)
-        if (poke.length >= 6 ) poke[4] = e, poke.pop()
-    })
-
-    localStorage.setItem('poke_inf', JSON.stringify(poke))
+    let arrSel = JSON.parse( localStorage.getItem("poke_inf") )
+    if (arrSel !== []) {
+        const poke = []
+        arr.forEach( (e) => {
+            if (!poke.includes(e)) poke.push(e)
+            if (poke.length >= 6 ) poke[4] = e, poke.pop()
+        })
+    
+        localStorage.setItem('poke_inf', JSON.stringify(poke))
+    } 
 }
 
 function removeElements(obj) {for (let i = obj.length - 1; i >= 0; --i) obj[i].remove()}
