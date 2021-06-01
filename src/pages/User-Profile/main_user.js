@@ -23,6 +23,7 @@ const togglePokeball = document.getElementsByClassName("big_pokeball");
 const favorite  = document.getElementsByClassName('star_favorite');
 const edit_pokefav = document.getElementById('edit_pokefav')
 let eDiv2;
+const pokeSelec = [];
 
 (() => {
     let picture = JSON.parse(localStorage.getItem('UserImg'));
@@ -64,7 +65,7 @@ let eDiv2;
         poke_favorite.classList.add('star_favorite')
         poke_img.classList.add('big_pokeball')
         pokeballdown.classList.add('change_ball')
-        eDiv.style.position = "relative"
+        poke_favorite.alt = getPokemons[p]
         
         eDiv.appendChild(poke_favorite)
         eDiv.appendChild(poke_img)
@@ -72,6 +73,17 @@ let eDiv2;
 
         allcontainer_pokeball.appendChild(eDiv)
     }
+
+    let fav = JSON.parse(localStorage.getItem("pokeFav"))  
+    for (let a = 0; a < favorite.length; a++) {
+        for (let i = 0; i < fav.length; i++) {
+            if (fav[i] === Number(favorite[a].alt)) {
+                favorite[a].style.display = "block"
+                favorite[a].src = "/assets/icons/star_selected.svg"
+            }
+        } 
+        
+    } 
 })()
 
 
@@ -136,13 +148,8 @@ for (let i = 0; i < click_little_ball.length; i++) {
 // seccion experimental
 
 function hiddeElements(obj) {
-    for (var i = obj.length - 1; i >= 0; --i) 
-
-    if (obj[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
-        obj[i].style.display = "none"
-    }
-
-
+    for (let i = obj.length - 1; i >= 0; --i) 
+    if (obj[i].src === `${window.location.origin}/src/assets/icons/star.svg`) obj[i].style.display = "none"
 }
 
 edit_pokefav.addEventListener("click", () => {
@@ -150,23 +157,24 @@ edit_pokefav.addEventListener("click", () => {
     for (let i = 0; i < favorite.length; i++) {
         favorite[i].style.display = "block"
         favorite[i].src = "/assets/icons/star.svg"
-
         
+
         favorite[i].addEventListener('click', () => {
             
-            if (favorite[i].src === "https://webapp-pokemon.vercel.app/assets/icons/star.svg") {
+            if (favorite[i].src === `${window.location.origin}/src/assets/icons/star.svg`) {
                 favorite[i].src = "/assets/icons/star_selected.svg"
+                pokeSelec.push(Number(favorite[i].alt))
+                console.log(pokeSelec);
+                
+                localStorage.setItem("pokeFav", JSON.stringify(pokeSelec))
+
                 let sum = 1
                 control = control + sum
-                console.log(control);
                 if (control === 2) {
                     hiddeElements(favorite) 
                     control = control- control
                 }
             } 
-            /*
-            
-            */
         })
     }
 })

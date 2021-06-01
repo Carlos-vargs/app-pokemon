@@ -269,9 +269,6 @@ main{
 
 .star_favorite {
     display: none;
-    /* top: 0;
-    position: absolute;
-    left: 80%; */
     width: 17px;
     margin: 0 0 0 105px;
 }

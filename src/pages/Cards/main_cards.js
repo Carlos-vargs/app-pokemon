@@ -122,7 +122,7 @@ function removeDuplicates (arr) {
     localStorage.setItem('poke_inf', JSON.stringify(poke))
 }
 
-function removeElements(obj) {for (var i = obj.length - 1; i >= 0; --i) obj[i].remove()}
+function removeElements(obj) {for (let i = obj.length - 1; i >= 0; --i) obj[i].remove()}
 
 function renderPokemon(pokeData){
     let countAbility = pokeData.abilities
