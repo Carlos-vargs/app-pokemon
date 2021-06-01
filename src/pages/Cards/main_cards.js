@@ -186,7 +186,7 @@ window.addEventListener("click", e => {
 user_profile.addEventListener("click", () => location.href = "/pages/User-Profile/index.html")
 redirectionLogin.addEventListener ("click", () => location.href = "/#")
 
-if (getPic === null) img_user.src = "../../assets/img/Pokemon_Trainer_Boy.png"
+if (getPic === null) img_user.src = "/assets/img/Pokemon_Trainer_Boy.png"
 if (img_user.src === "" )  img_user.src = getPic
 
 user_name.innerHTML = getName

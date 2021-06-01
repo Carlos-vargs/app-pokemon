@@ -171,7 +171,6 @@ edit_pokefav.addEventListener("click", () => {
             if (favorite[i].src === `${window.location.origin}/assets/icons/star.svg`) {
                 favorite[i].src = "/assets/icons/star_selected.svg"
                 pokeSelec.push(Number(favorite[i].alt))
-                console.log(pokeSelec);
                 
                 localStorage.setItem("pokeFav", JSON.stringify(pokeSelec))
 
