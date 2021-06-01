@@ -145,7 +145,6 @@ for (let i = 0; i < click_little_ball.length; i++) {
         click_little_ball[i].style.width = "50px"
     })
 }
-// seccion experimental
 
 function hiddeElements(obj) {
     for (let i = obj.length - 1; i >= 0; --i) 
