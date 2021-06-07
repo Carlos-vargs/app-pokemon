@@ -188,7 +188,7 @@ redirectionLogin.addEventListener ("click", () => location.href = "/#")
 if (getPic === null) img_user.src = "/assets/img/Pokemon_Trainer_Boy.png"
 if (img_user.src === "" )  img_user.src = getPic
 
-user_name.innerHTML = getName
+user_name.innerText = getName
 
 let preload = document.createElement('div')
 preload.classList.add('preloader')
