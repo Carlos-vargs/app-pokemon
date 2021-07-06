@@ -7,8 +7,7 @@
 html{
     font-size: 62.5%;
     font-family: 'Lato', sans-serif;
-    background: rgb(242,183,5);
-    background: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
+    background-image: linear-gradient(90deg, rgba(242,183,5,1) 0%, rgba(242,135,5,1) 100%);
     overflow-x: hidden;
 }
 
