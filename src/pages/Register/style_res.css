@@ -142,12 +142,12 @@ main{
     border-radius: 10px;
     margin-top: 10%;
     padding: 0.5em 1.2em;
-    background: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0);
 }
 .button-form:hover,
 .button-form:focus {
     transition: all 1s ease;
-    background:#D9072D;
+    background-color:#D9072D;
     color: #fff;
     outline: none;
 }
