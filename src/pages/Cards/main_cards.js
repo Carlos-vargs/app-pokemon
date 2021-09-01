@@ -126,7 +126,16 @@ function removeElements(obj) {for (let i = obj.length - 1; i >= 0; --i) obj[i].r
 function renderPokemon(pokeData){
     let countAbility = pokeData.abilities
     let countTypes = pokeData.types
-    let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${pokeData.id}.png`
+    let id = ''
+
+    if (pokeData.id <= 9) {
+        return id = `00${pokeData.id}`
+    } else if (pokeData.id >= 10) {
+        return id = `0${pokeData.id}`
+    } else {
+        id = pokeData.id
+    }
+    let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 
     let infCards = cards_generator(pokeData)
     allPokemonContainer.appendChild(infCards);
