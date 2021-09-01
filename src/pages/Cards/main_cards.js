@@ -126,7 +126,7 @@ function removeElements(obj) {for (let i = obj.length - 1; i >= 0; --i) obj[i].r
 function renderPokemon(pokeData){
     let countAbility = pokeData.abilities
     let countTypes = pokeData.types
-    let pokeImg = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`
+    let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${pokeData.id}.png`
 
     let infCards = cards_generator(pokeData)
     allPokemonContainer.appendChild(infCards);
