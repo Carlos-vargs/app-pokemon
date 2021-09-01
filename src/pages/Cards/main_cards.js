@@ -132,8 +132,6 @@ function renderPokemon(pokeData){
         return id = `00${pokeData.id}`
     } else if (pokeData.id >= 10) {
         return id = `0${pokeData.id}`
-    } else {
-        id = pokeData.id
     }
     let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 
