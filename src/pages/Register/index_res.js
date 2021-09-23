@@ -117,7 +117,7 @@ login_redirect.addEventListener('click', () => {
     setTimeout(() => {
         traslate_login.style.marginLeft = '0'
         traslate_login.style.transform = 'translateX(-50%)'
-        traslate_login.style.transition = 'all 0.5s ease'
+        traslate_login.style.transition = 'all 1s ease'
     }, 1100);
 })
 
@@ -129,8 +129,8 @@ reverse.addEventListener('click', () => {
     
     
     traslate_login.style.transform = 'translateX(100%)'
-    traslate_login.style.transition = 'all 1s ease'
-    traslate_form.style.transition = 'all 1s ease'
+    traslate_login.style.transition = 'all 2s ease'
+    traslate_form.style.transition = 'all 2s ease'
     
     setTimeout(() => {
         traslate_login.style.display = 'none'
