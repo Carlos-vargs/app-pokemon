@@ -2,6 +2,9 @@
 
 app-pokemon is an application that allows you to learn more about your favorite pokemon, its abilities, evolutions among other features
 
+  <img src="../assets/img/project/register.png" width="150" title="Register" alt="register">
+
+
 ## Installation
 
  Use Git Clone Command [git clone](https://git-scm.com/docs/git-clone) to install app-pokemon.
