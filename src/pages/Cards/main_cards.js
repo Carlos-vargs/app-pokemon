@@ -2,8 +2,8 @@
 const URL = 'https://pokeapi.co/api/v2/pokemon?limit=151';
 const isResOk = (res) => {
     if (!res.ok)
-      throw new Error(res.status);
-      return res.json()
+        throw new Error(res.status);
+    return res.json()
 };
 
 //search pokemons with input
@@ -35,8 +35,8 @@ const pokeAb = document.getElementsByClassName('list_deleted')
 // user profile
 const user_name = document.getElementById('user-name--cards')
 const img_user = document.getElementById('profile-img--cards')
-const getName = JSON.parse( localStorage.getItem('user-nick') )
-const getPic = JSON.parse( localStorage.getItem('UserImg') )
+const getName = JSON.parse(localStorage.getItem('user-nick'))
+const getPic = JSON.parse(localStorage.getItem('UserImg'))
 const btn_select = document.getElementById('select-pokemon')
 const preload_cards = document.getElementById('preload')
 const poke_arr = []
@@ -45,37 +45,37 @@ const notEvolution = document.getElementById('notEv')
 //img evolution
 const getClassImg = document.getElementsByClassName("mtm")
 
-function fetchDataPokemon(){
+function fetchDataPokemon() {
     fetch(URL)
-    .then(res => isResOk(res))
-    .then( data => {
-        data.results.forEach(function (pokemon){
-            pokemonInformation(pokemon);
-        });
+        .then(res => isResOk(res))
+        .then(data => {
+            data.results.forEach(function (pokemon) {
+                pokemonInformation(pokemon);
+            });
 
-    })
+        })
 }
 
-function pokemonInformation(pokemon){
+function pokemonInformation(pokemon) {
     let URL_INF = pokemon.url
     fetch(URL_INF)
-    .then(res => res.json())
-    .then( pokeData => {
-        renderPokemon(pokeData);
+        .then(res => res.json())
+        .then(pokeData => {
+            renderPokemon(pokeData);
+        })
+}
+
+function createTypes(types, parent) {
+    types.forEach(e => {
+        let btn_type = document.createElement('p')
+        btn_type.innerHTML = firstLetter(e.type.name)
+        btn_type.classList.add('btn_type')
+        parent.appendChild(btn_type)
     })
 }
 
-function createTypes(types, parent){
-    types.forEach( e => {
-    let btn_type = document.createElement('p')
-    btn_type.innerHTML = firstLetter(e.type.name)
-    btn_type.classList.add('btn_type')
-    parent.appendChild(btn_type)
-    })
-}
-
-function createAbility(hab, parent){
-    hab.forEach( a => {
+function createAbility(hab, parent) {
+    hab.forEach(a => {
         let hability = document.createElement('p')
         hability.innerHTML = firstLetter(a.ability.name)
         hability.classList.add('list_deleted')
@@ -86,53 +86,57 @@ function createAbility(hab, parent){
 function poke_species(spc) {
     let spc_inf = spc.url
     fetch(spc_inf)
-    .then(res => res.json())
-    .then( b => {
-        let bio_ifn = b.flavor_text_entries[1].flavor_text
-        poke_bio.innerHTML = firstLetter(bio_ifn.toLowerCase())
+        .then(res => res.json())
+        .then(b => {
+            let bio_ifn = b.flavor_text_entries[1].flavor_text
+            poke_bio.innerHTML = firstLetter(bio_ifn.toLowerCase())
 
-        poke_evolution(b.evolution_chain)
-    })
+            poke_evolution(b.evolution_chain)
+        })
 }
 
 function poke_evolution(ev) {
     let infEvolution = ev.url
     fetch(infEvolution)
-    .then(res => res.json())
-    .then( v => {
-        (v.chain.evolves_to[0] === undefined) ? notEvolution.style.display = "flex" : notEvolution.style.display = "none"
-        getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url)
-    })
+        .then(res => res.json())
+        .then(v => {
+            (v.chain.evolves_to[0] === undefined) ? notEvolution.style.display = "flex" : notEvolution.style.display = "none"
+            getEvolution(v.chain.evolves_to, v.chain.evolves_to[0].evolves_to, v.chain.species.url)
+        })
 }
 
-function getEvolution (v1, v2, v3) {
+function getEvolution(v1, v2, v3) {
     fetchDataEvolution(v3)
-    v1.forEach ( x => fetchDataEvolution(x.species.url))
-    v2.forEach ( x => fetchDataEvolution(x.species.url))
+    v1.forEach(x => fetchDataEvolution(x.species.url))
+    v2.forEach(x => fetchDataEvolution(x.species.url))
 }
 
-function removeDuplicates (arr) { 
+function removeDuplicates(arr) {
     const poke = []
-    arr.forEach( (e) => {
+    arr.forEach((e) => {
         if (!poke.includes(e)) poke.push(e)
-        if (poke.length >= 6 ) poke[4] = e, poke.pop()
+        if (poke.length >= 6) poke[4] = e, poke.pop()
     })
-    
-    localStorage.setItem('poke_inf', JSON.stringify(poke))    
+
+    localStorage.setItem('poke_inf', JSON.stringify(poke))
 }
 
-function removeElements(obj) {for (let i = obj.length - 1; i >= 0; --i) obj[i].remove()}
+function removeElements(obj) { for (let i = obj.length - 1; i >= 0; --i) obj[i].remove() }
 
-function renderPokemon(pokeData){
+function renderPokemon(pokeData) {
     let countAbility = pokeData.abilities
     let countTypes = pokeData.types
-    let id = ''
 
-    if (pokeData.id <= 9) {
-        return id = `00${pokeData.id}`
-    } else if (pokeData.id >= 10) {
-        return id = `0${pokeData.id}`
+    let id = pokeData.id
+
+    if (id <= 9) {
+        id = (`00${id}`);
+    } else if (id <= 99) {
+        id = (`0${id}`)
+    } else {
+        id = id
     }
+
     let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 
     let infCards = cards_generator(pokeData)
@@ -149,10 +153,10 @@ function renderPokemon(pokeData){
     })
 
     infCards.addEventListener('click', () => {
-        (pokeAb.length ===  1) ? poke_skill.innerHTML = "Skill" : poke_skill.innerHTML = "Skills"
+        (pokeAb.length === 1) ? poke_skill.innerHTML = "Skill" : poke_skill.innerHTML = "Skills"
 
         pokeContainerModal.style.display = 'flex'
-        htmlScroll.style.overflow= 'hidden'
+        htmlScroll.style.overflow = 'hidden'
         poke_Img.src = pokeImg
         poke_Img.alt = pokeData.name
         modal_names.innerHTML = firstLetter(pokeData.name)
@@ -173,27 +177,27 @@ function renderPokemon(pokeData){
 
 pokeClose.addEventListener("click", () => {
     pokeContainerModal.style.display = 'none';
-    htmlScroll.style.overflow= 'auto';
+    htmlScroll.style.overflow = 'auto';
     poke_types.innerHTML = ""
     poke_hab.innerHTML = ""
     removeElements(getClassImg)
 })
 
 window.addEventListener("click", e => {
-    if(e.target == pokeContainerModal){
+    if (e.target == pokeContainerModal) {
         pokeContainerModal.style.display = 'none';
-        htmlScroll.style.overflow= 'auto';
+        htmlScroll.style.overflow = 'auto';
         poke_types.innerHTML = ""
-        poke_hab.innerHTML = ""        
+        poke_hab.innerHTML = ""
         removeElements(getClassImg)
     }
 })
 
 user_profile.addEventListener("click", () => location.href = "/pages/User-Profile/index.html")
-redirectionLogin.addEventListener ("click", () => location.href = "/#")
+redirectionLogin.addEventListener("click", () => location.href = "/#")
 
 if (getPic === null) img_user.src = "/assets/img/Pokemon_Trainer_Boy.png"
-if (img_user.src === "" )  img_user.src = getPic
+if (img_user.src === "") img_user.src = getPic
 
 user_name.innerText = getName
 
@@ -204,6 +208,6 @@ preload_cards.appendChild(preload)
 fetchDataPokemon()
 
 setTimeout(() => {
-    allPokemonContainer.style.display = "flex" 
+    allPokemonContainer.style.display = "flex"
     preload_cards.style.display = "none"
 }, 2000);
