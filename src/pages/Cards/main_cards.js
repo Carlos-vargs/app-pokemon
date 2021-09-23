@@ -139,7 +139,8 @@ function renderPokemon(pokeData) {
 
     let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 
-    let infCards = cards_generator(pokeData)
+    let infCards = cards_generator(pokeData, id)
+    
     allPokemonContainer.appendChild(infCards);
 
     search_pokemons.addEventListener('keyup', () => {
