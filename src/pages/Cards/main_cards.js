@@ -127,9 +127,15 @@ function renderPokemon(pokeData) {
     let countAbility = pokeData.abilities
     let countTypes = pokeData.types
 
-    const verifyId = pokeData.id
+    let id = pokeData.id
 
-    let id = idGenerator(verifyId)
+    if (id <= 9) {
+        id = (`00${id}`);
+    } else if (id <= 99) {
+        id = (`0${id}`)
+    } else {
+        id = id
+    }
 
     let pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`
 

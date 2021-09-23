@@ -1,6 +1,14 @@
 const generate_img = obj => {
 
-    let id =  idGenerator(obj.id)
+    let id = obj.id
+
+    if (id <= 9) {
+        id = (`00${id}`);
+    } else if (id <= 99) {
+        id = (`0${id}`)
+    } else {
+        id = id
+    }
 
     let evo_img = document.createElement('img')
     evo_img.src =`https://pokeres.bastionbot.org/images/pokemon/${id}.png`
